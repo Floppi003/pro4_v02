@@ -4,6 +4,8 @@
 
 using Tobii.EyeX.Framework;
 using UnityEngine;
+using System;
+using System.Collections;
 
 /// <summary>
 /// Component that encapsulates a provider for <see cref="EyeXGazePoint"/> data.
@@ -15,6 +17,7 @@ public class GazePointDataComponent : MonoBehaviour
 
     private EyeXHost _eyexHost;
     private IEyeXDataProvider<EyeXGazePoint> _dataProvider;
+	private Queue uWorldGazePoints;
 
     /// <summary>
     /// Gets the last gaze point.
@@ -30,6 +33,7 @@ public class GazePointDataComponent : MonoBehaviour
     protected void OnEnable()
     {
         _dataProvider.Start();
+		uWorldGazePoints = new Queue();
     }
 
     protected void OnDisable()
@@ -54,9 +58,32 @@ public class GazePointDataComponent : MonoBehaviour
 
 			//transform.position = new Vector3(screenCoordinates.x, screenCoordinates.y, 0);
 
-			Vector3 assignVector = new Vector3(worldCoordinates.x, worldCoordinates.y, 0.0f);
+			/*Vector3 assignVector = new Vector3(worldCoordinates.x, worldCoordinates.y, 0.0f);
 			transform.position = assignVector;
-			Debug.Log ("Transform: " + transform.position);
+			Debug.Log ("Transform: " + transform.position);*/
+
+			uWorldGazePoints.Enqueue(new Vector3(worldCoordinates.x, worldCoordinates.y, 0.0f));
+
+			if (uWorldGazePoints.Count > 10) {
+
+				float x = 0;
+				float y = 0;
+				float z = 0;
+
+				foreach(Vector3 v in uWorldGazePoints) {
+					x = x + v.x;
+					y = y + v.y;
+					z = z + v.z;
+				}
+
+				x = x / uWorldGazePoints.Count;
+				y = y / uWorldGazePoints.Count;
+				z = z / uWorldGazePoints.Count;
+
+				uWorldGazePoints.Dequeue();
+
+				transform.position = new Vector3(x, y, z);
+			}
 
 		}
     }
