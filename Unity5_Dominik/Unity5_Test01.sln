@@ -1,9 +1,9 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-Project("{B0EEA0C8-ED06-CF4F-D6D6-46C2AD4C3B9E}") = "Unity5_Test01", "Assembly-CSharp-firstpass-vs.csproj", "{C6C1490C-EDE7-4298-41FB-651E7DFF0B32}"
+Project("{B0EEA0C8-ED06-CF4F-D6D6-46C2AD4C3B9E}") = "Unity5_Test01", "Assembly-CSharp-firstpass.csproj", "{C6C1490C-EDE7-4298-41FB-651E7DFF0B32}"
 EndProject
-Project("{B0EEA0C8-ED06-CF4F-D6D6-46C2AD4C3B9E}") = "Unity5_Test01", "Assembly-CSharp-Editor-vs.csproj", "{8E20B025-DE44-300C-51EA-CF5E576C6F76}"
+Project("{B0EEA0C8-ED06-CF4F-D6D6-46C2AD4C3B9E}") = "Unity5_Test01", "Assembly-CSharp-Editor.csproj", "{8E20B025-DE44-300C-51EA-CF5E576C6F76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,15 +23,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-<<<<<<< HEAD
-														GlobalSection(MonoDevelopProperties) = preSolution
-=======
-<<<<<<< HEAD
-													GlobalSection(MonoDevelopProperties) = preSolution
-=======
 												GlobalSection(MonoDevelopProperties) = preSolution
->>>>>>> origin/master
->>>>>>> origin/master
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
