@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{8E20B025-DE44-300C-51EA-CF5E576C6F76}</ProjectGuid>
+	<ProjectGuid>{A5A47C01-A03B-B974-735F-D8C7DCE61D18}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -51,10 +51,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Dominik/Documents/GitHub/pro4_v02/Unity5_Test01/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Dominik/Documents/GitHub/pro4_v02/Unity5_Dominik/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Dominik/Documents/GitHub/pro4_v02/Unity5_Test01/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Dominik/Documents/GitHub/pro4_v02/Unity5_Dominik/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -89,7 +89,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{C6C1490C-EDE7-4298-41FB-651E7DFF0B32}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+      <Project>{DFE9894F-721A-ABFC-3D77-577BFCA7C889}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{84DCB872-35AA-5E32-4A09-C7270895D74C}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
