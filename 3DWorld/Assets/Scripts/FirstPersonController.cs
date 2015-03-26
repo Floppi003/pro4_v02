@@ -1,17 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+[RequireComponent (typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour {
 
 	public float movementSpeed = 5.0f;
 	public float mouseSensivity = 5.0f;
-	public float verticalRotation = 0.0f;
+	public float jumpSpeed = 5.0f;
+
+	float verticalRotation = 0.0f;
 	public float upDownRange = 60.0f;
 	public float pushStrength;
+
+	float verticalVelocity = 0;
+
+	CharacterController cc;
 
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
+		cc = GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
@@ -29,13 +37,17 @@ public class FirstPersonController : MonoBehaviour {
 		float forwardSpeed = Input.GetAxis("Vertical") * movementSpeed;
 		float sideSpeed = Input.GetAxis("Horizontal") * movementSpeed;
 
-		Vector3 speed = new Vector3(sideSpeed,0,forwardSpeed);
+		verticalVelocity += Physics.gravity.y * Time.deltaTime;
 
+		if (cc.isGrounded && Input.GetButtonDown ("Jump")) {
+			verticalVelocity = jumpSpeed;
+		}
+
+		Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
+		
 		speed = transform.rotation * speed;
 
-		CharacterController cc = GetComponent<CharacterController>();
-
-		cc.SimpleMove(speed);
+		cc.Move(speed * Time.deltaTime);
 	}
 
 
@@ -70,6 +82,6 @@ public class FirstPersonController : MonoBehaviour {
 		// change color
 		GetComponent<Renderer>().material.color = Color.red;
 
-		cc.Move (movementSpeed*Time.deltaTime);
+		//cc.Move (movementSpeed*Time.deltaTime);
 	}
 }
