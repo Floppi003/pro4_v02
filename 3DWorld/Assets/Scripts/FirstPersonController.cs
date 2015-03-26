@@ -7,6 +7,7 @@ public class FirstPersonController : MonoBehaviour {
 	public float mouseSensivity = 5.0f;
 	public float verticalRotation = 0.0f;
 	public float upDownRange = 60.0f;
+	public float pushStrength;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +36,38 @@ public class FirstPersonController : MonoBehaviour {
 		CharacterController cc = GetComponent<CharacterController>();
 
 		cc.SimpleMove(speed);
-	
+	}
+
+
+
+	void OnControllerColliderHit(ControllerColliderHit hit) {
+		Debug.Log ("onControllerColliderHit");
+
+
+		//gameObject.renderer.material.color = new Color (0.0f, 1.0f, 0.0f);
+
+
+		Rigidbody body = hit.collider.attachedRigidbody;
+		
+		if (body == null || body.isKinematic) {
+			Debug.Log ("Sphere is null/kinematic");
+			return;
+		}
+		
+		if (hit.moveDirection.y < -0.3f) {
+			Debug.Log ("Sphere moveDirection < -0.3f");
+			return;
+		}
+		
+		
+		pushStrength = movementSpeed / 1.6f;
+		
+		Vector3 direction = new Vector3 (hit.moveDirection.x, 0, hit.moveDirection.z);
+		body.velocity = direction * pushStrength;
+
+
+
+		// change color
+		GetComponent<Renderer>().material.color = Color.red;
 	}
 }
