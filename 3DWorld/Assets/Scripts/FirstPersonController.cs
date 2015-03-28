@@ -4,23 +4,24 @@ using System.Collections;
 [RequireComponent (typeof(CharacterController))]
 public class FirstPersonController : MonoBehaviour {
 
-	public float movementSpeed = 5.0f;
-	public float mouseSensivity = 5.0f;
-	public float jumpSpeed = 5.0f;
+	public float movementSpeed = 8.0f; //movement speed of the character controller
+	public float mouseSensivity = 1.5f; //camera speed (mouse)
+	public float jumpStrength = 6.0f; //jump height - vertical distance
 
-	float verticalRotation = 0.0f;
-	public float upDownRange = 60.0f;
-	public float pushStrength;
+	float verticalRotation = 0.0f; //current camera rotation
+	public float upDownRange = 60.0f; //limit the camera movement upwards and downwards
+	public float pushStrength; //strength used for pushing objects like boxes or balls
+	
+	public float extraGravity = 1.5f; //add to normal gravity to shorten the jump
+	float verticalVelocity = 0; //current gravity of the player - changes during a jump
 
-	float verticalVelocity = 0;
+	CharacterController cc; //the controllable player element
+	bool normalGravity = true; //whether it's normal or inverted gravity
 
-	CharacterController cc;
-
-	bool normalGravity = true;
 
 	// Use this for initialization
 	void Start () {
-		Screen.lockCursor = true;
+		Screen.lockCursor = true; //invisible/locked mouse cursor
 		cc = GetComponent<CharacterController>();
 	}
 	
@@ -39,11 +40,17 @@ public class FirstPersonController : MonoBehaviour {
 		float forwardSpeed = Input.GetAxis("Vertical") * movementSpeed;
 		float sideSpeed = Input.GetAxis("Horizontal") * movementSpeed;
 
-		verticalVelocity += Physics.gravity.y * Time.deltaTime;
+		//verticalVelocity += Physics.gravity.y * Time.deltaTime * extraGravity;
+
+		if (cc.isGrounded) {
+			verticalVelocity = Physics.gravity.y;
+		} else {
+			verticalVelocity += Physics.gravity.y * Time.deltaTime * extraGravity;
+		}
 
 		if (cc.isGrounded && Input.GetButtonDown ("Jump")) {
-			verticalVelocity = jumpSpeed;
-		}
+			verticalVelocity = jumpStrength;
+		} 
 
 		Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
 		
