@@ -16,6 +16,8 @@ public class FirstPersonController : MonoBehaviour {
 
 	CharacterController cc;
 
+	bool normalGravity = true;
+
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
@@ -48,9 +50,13 @@ public class FirstPersonController : MonoBehaviour {
 		speed = transform.rotation * speed;
 
 		cc.Move(speed * Time.deltaTime);
+
+		// Inverted Gravity - currently unused
+		if (Input.GetKeyDown (KeyCode.G)) {
+			normalGravity = !normalGravity;
+		}
+
 	}
-
-
 
 	void OnControllerColliderHit(ControllerColliderHit hit) {
 		Debug.Log ("onControllerColliderHit");
