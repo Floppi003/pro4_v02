@@ -7,6 +7,7 @@ public class FirstPersonController : MonoBehaviour {
 	public float movementSpeed = 8.0f; //movement speed of the character controller
 	public float mouseSensivity = 1.5f; //camera speed (mouse)
 	public float jumpStrength = 6.0f; //jump height - vertical distance
+	public AudioClip helloClip;
 
 	float verticalRotation = 0.0f; //current camera rotation
 	public float upDownRange = 60.0f; //limit the camera movement upwards and downwards
@@ -65,11 +66,11 @@ public class FirstPersonController : MonoBehaviour {
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit) {
-		//Debug.Log ("onControllerColliderHit");
-
-
-		//gameObject.renderer.material.color = new Color (0.0f, 1.0f, 0.0f);
-
+		//Debug.Log ("collided gameobject name: " + hit.collider.gameObject.name);
+		if (hit.collider.gameObject.name.Equals ("AudioCollider")) {
+			Debug.Log ("collided with audiocollider");
+			//this.GetComponent<AudioSource>().PlayOneShot(helloClip);
+		}
 
 		Rigidbody body = hit.collider.attachedRigidbody;
 		
