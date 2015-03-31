@@ -40,5 +40,6 @@ public class GazePointDataComponent : MonoBehaviour
     protected void Update()
     {
         LastGazePoint = _dataProvider.Last;
+		// test comment
     }
 }

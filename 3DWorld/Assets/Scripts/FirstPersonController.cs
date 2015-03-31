@@ -62,11 +62,10 @@ public class FirstPersonController : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.G)) {
 			normalGravity = !normalGravity;
 		}
-
 	}
 
 	void OnControllerColliderHit(ControllerColliderHit hit) {
-		Debug.Log ("onControllerColliderHit");
+		//Debug.Log ("onControllerColliderHit");
 
 
 		//gameObject.renderer.material.color = new Color (0.0f, 1.0f, 0.0f);
@@ -75,7 +74,7 @@ public class FirstPersonController : MonoBehaviour {
 		Rigidbody body = hit.collider.attachedRigidbody;
 		
 		if (body == null || body.isKinematic) {
-			Debug.Log ("Sphere is null/kinematic");
+			///Debug.Log ("Body is null/kinematic");
 			return;
 		}
 		
@@ -93,7 +92,7 @@ public class FirstPersonController : MonoBehaviour {
 
 
 		// change color
-		GetComponent<Renderer>().material.color = Color.red;
+		//GetComponent<Renderer>().material.color = Color.red;
 
 		//cc.Move (movementSpeed*Time.deltaTime);
 	}
