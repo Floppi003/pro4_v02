@@ -1,6 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\Unity5_Test01\Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs">
+    <Files>
+      <File FileName="..\Unity5_Test01\Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs" Line="88" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

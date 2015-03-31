@@ -12,34 +12,72 @@ using UnityEngine;
 public class GazePointDataComponent : MonoBehaviour
 {
     public GazePointDataMode gazePointDataMode = GazePointDataMode.LightlyFiltered;
+	public float distanceToSee;
 
-    private EyeXHost _eyexHost;
-    private IEyeXDataProvider<EyeXGazePoint> _dataProvider;
+    private EyeXHost eyexHost;
+    private IEyeXDataProvider<EyeXGazePoint> dataProvider;
 
     /// <summary>
     /// Gets the last gaze point.
     /// </summary>
-    public EyeXGazePoint LastGazePoint { get; private set; }
+    public EyeXGazePoint lastGazePoint { get; private set; }
 
     protected void Awake()
     {
-        _eyexHost = EyeXHost.GetInstance();
-        _dataProvider = _eyexHost.GetGazePointDataProvider(gazePointDataMode);
+        eyexHost = EyeXHost.GetInstance();
+        dataProvider = eyexHost.GetGazePointDataProvider(gazePointDataMode);
     }
 
     protected void OnEnable()
     {
-        _dataProvider.Start();
+        dataProvider.Start();
     }
 
     protected void OnDisable()
     {
-        _dataProvider.Stop();
+        dataProvider.Stop();
     }
 
     protected void Update()
     {
-        LastGazePoint = _dataProvider.Last;
-		// test comment
+        lastGazePoint = dataProvider.Last;
+		
+		if (lastGazePoint.IsValid) {
+
+			Vector2 screenCoordinates = lastGazePoint.Screen;
+			Vector3 worldCoordinates = Camera.main.ScreenToWorldPoint(new Vector3(screenCoordinates.x, screenCoordinates.y, 0));
+
+			Debug.Log ("Last Gaze Point: " + lastGazePoint);
+			Debug.Log ("Screen Coordinates: " + screenCoordinates);
+			Debug.Log ("World Coordinates: " + worldCoordinates);
+
+
+			Ray gazeRay = Camera.main.ScreenPointToRay(new Vector3(screenCoordinates.x, screenCoordinates.y, 0.0f));
+			Debug.DrawRay (gazeRay.origin, gazeRay.direction * distanceToSee, Color.magenta);
+
+			/*uWorldGazePoints.Enqueue(new Vector3(worldCoordinates.x, worldCoordinates.y, 0.0f));
+			
+			if (uWorldGazePoints.Count > 10) {
+				
+				float x = 0;
+				float y = 0;
+				float z = 0;
+				
+				foreach(Vector3 v in uWorldGazePoints) {
+					x = x + v.x;
+					y = y + v.y;
+					z = z + v.z;
+				}
+				
+				x = x / uWorldGazePoints.Count;
+				y = y / uWorldGazePoints.Count;
+				z = z / uWorldGazePoints.Count;
+				
+				uWorldGazePoints.Dequeue();
+				
+				transform.position = new Vector3(x, y, z);
+			}
+			*/
+		}
     }
 }

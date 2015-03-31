@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\3DWorld\Assets\Scripts\BlockScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs">
     <Files>
-      <File FileName="..\3DWorld\Assets\Scripts\BlockScript.cs" Line="51" Column="16" />
-      <File FileName="..\3DWorld\Assets\Scripts\FirstPersonController.cs" Line="5" Column="35" />
+      <File FileName="Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs" Line="88" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
