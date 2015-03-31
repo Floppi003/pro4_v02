@@ -51,7 +51,6 @@
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\EyeXEngineAvailabilityComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\FixationDataComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\GazeAwareComponent.cs" />
-     <Compile Include="Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\UserPresenceComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\EnumHelpers.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\EyeXActivatable.cs" />

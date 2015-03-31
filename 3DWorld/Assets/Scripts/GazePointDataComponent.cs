@@ -16,6 +16,7 @@ public class GazePointDataComponent : MonoBehaviour
 
     private EyeXHost eyexHost;
     private IEyeXDataProvider<EyeXGazePoint> dataProvider;
+	private RaycastHit gazeRaycastHit;
 
     /// <summary>
     /// Gets the last gaze point.
@@ -47,13 +48,22 @@ public class GazePointDataComponent : MonoBehaviour
 			Vector2 screenCoordinates = lastGazePoint.Screen;
 			Vector3 worldCoordinates = Camera.main.ScreenToWorldPoint(new Vector3(screenCoordinates.x, screenCoordinates.y, 0));
 
-			Debug.Log ("Last Gaze Point: " + lastGazePoint);
-			Debug.Log ("Screen Coordinates: " + screenCoordinates);
-			Debug.Log ("World Coordinates: " + worldCoordinates);
+			//Debug.Log ("Last Gaze Point: " + lastGazePoint);
+			//Debug.Log ("Screen Coordinates: " + screenCoordinates);
+			//Debug.Log ("World Coordinates: " + worldCoordinates);
 
 
 			Ray gazeRay = Camera.main.ScreenPointToRay(new Vector3(screenCoordinates.x, screenCoordinates.y, 0.0f));
 			Debug.DrawRay (gazeRay.origin, gazeRay.direction * distanceToSee, Color.magenta);
+
+			if (Physics.Raycast (gazeRay.origin, gazeRay.direction, out gazeRaycastHit, distanceToSee)) {
+				Debug.Log ("I gazed: " + gazeRaycastHit.collider.gameObject.name);
+				gazeRaycastHit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
+
+				// set timer of block to 1 (when timer reaches 0 it will get standard gray color)
+				BlockScript blockScript = gazeRaycastHit.collider.gameObject.GetComponent<BlockScript>();
+				blockScript.lostGazeTimer = 0.35f;
+			}
 
 			/*uWorldGazePoints.Enqueue(new Vector3(worldCoordinates.x, worldCoordinates.y, 0.0f));
 			

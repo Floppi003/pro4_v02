@@ -1,8 +1,11 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\Unity5_Test01\Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GazePointDataComponent.cs">
     <Files>
-      <File FileName="..\Unity5_Test01\Assets\Standard Assets\EyeXFramework\Components\GazePointDataComponent.cs" Line="88" Column="4" />
+      <File FileName="Assets\Scripts\GazePointDataComponent.cs" Line="62" Column="7" />
+      <File FileName="Assets\Scripts\PlayerRaycasting.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BlockScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
