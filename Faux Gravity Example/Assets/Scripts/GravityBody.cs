@@ -6,9 +6,13 @@ public class GravityBody : MonoBehaviour {
 	
 	GravityAttractor targetGravity;
 	GameObject player;
+	GameObject[] planets;
+	GameObject targetPlanet;
 
 	void Awake () {
+		planets = GameObject.FindGameObjectsWithTag("Planet");
 		player = GameObject.FindGameObjectWithTag("Player");
+		targetPlanet = planets[0];
 		//planets = GameObject.FindGameObjectsWithTag("Planet").GetComponent<GravityAttractor>();
 		//planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<GravityAttractor>();
 		
@@ -17,26 +21,31 @@ public class GravityBody : MonoBehaviour {
 		GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 	}
 
-	//gets called at a regular interval independent on the framerate
+	//FixedUpdate gets called at a regular interval independent from the framerate
 	void FixedUpdate () {
 		// Allow this body to be influenced by planet's gravity
 
-		var planets = GameObject.FindGameObjectsWithTag("Planet");
-		GameObject targetPlanet = planets[0];
 		float targetDistance = Vector3.Distance (targetPlanet.transform.position, player.transform.position);
-		//Debug.Log ("collided gameobject name: " + hit.collider.gameObject.name);
 
 		for(var i = 1; i < planets.Length; i++)
 		{
 			GameObject tmpPlanet = planets[i];
 			float tmpDistance = Vector3.Distance (tmpPlanet.transform.position, player.transform.position);
-			if(tmpDistance > targetDistance)
+			Debug.Log ("TmpDistance: " + tmpDistance);
+			if(tmpDistance < targetDistance)
 			{
 				targetPlanet = tmpPlanet;
 			}
 		}
-		targetGravity = planets[1].GetComponent<GravityAttractor>();
 
-		targetGravity.Attract (transform);
+		Debug.Log ("Current Gravity: " + targetPlanet.name
+		+"  " + planets[0].name + ": " + Vector3.Distance (planets[0].transform.position, player.transform.position)
+	  	+"  " + planets[1].name + ": " + Vector3.Distance (planets[1].transform.position, player.transform.position)
+	   	+"  " + planets[2].name + ": " + Vector3.Distance (planets[2].transform.position, player.transform.position)
+	   	+"  " + planets[3].name + ": " + Vector3.Distance (planets[3].transform.position, player.transform.position));
+
+
+	targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
+	targetGravity.Attract (transform);
 	}
 }
