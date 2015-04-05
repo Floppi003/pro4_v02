@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
+public class Player : MonoBehaviour {
 
 	public GameManager manager;
 	public float moveSpeed;
 	public GameObject deathParticles;
+	public bool usesManager = true;
 
 	private float maxSpeed = 5f;
 	private Vector3 input;
 
 	private Vector3 spawn;
 
+	public AudioClip[] audioClip;
+
 
 	// Use this for initialization
 	void Start () {
+		if (usesManager) 
+		{
+			manager = manager.GetComponent<GameManager>();
+		}
 		spawn = transform.position;
-		manager = manager.GetComponent<GameManager>();
 	}
 
 
@@ -32,6 +38,8 @@ public class PlayerMovement : MonoBehaviour {
 		{
 			Die ();
 		}
+
+		Physics.gravity = Physics.Raycast (transform.position, Vector3.down, 0.3f) ? Vector3.zero : new Vector3 (0, -9.5f, 0);
 	}
 
 	void OnCollisionEnter(Collision other)
@@ -50,13 +58,25 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if (other.transform.tag == "Token")
 		{
-			manager.tokenCount += 1;
+			if(usesManager)
+			{
+				manager.tokenCount += 1;
+			}
+			PlaySound (0);
 			Destroy(other.gameObject);
 		}
 		if (other.transform.tag == "Goal")
 		{
+			PlaySound (1);
+			Time.timeScale = 0f;
 			manager.CompleteLevel();
 		}
+	}
+
+	void PlaySound(int clip)
+	{
+		GetComponent<AudioSource>().clip = audioClip [clip];
+		GetComponent<AudioSource> ().Play ();
 	}
 
 	void Die()

@@ -46,14 +46,12 @@ public class GameManager : MonoBehaviour {
 	{
 		totalTokenCount = tokenParent.transform.childCount;
 
-		if (PlayerPrefs.GetInt("Level Completed") > 0)
+		if (PlayerPrefs.GetInt("Level Completed") > 1)
 		{
 			currentLevel = PlayerPrefs.GetInt("Level Completed");
 		} else {
-			currentLevel = 0;
+			currentLevel = 1;
 		}
-
-			
 	}
 	
 	public void CompleteLevel()
@@ -64,12 +62,13 @@ public class GameManager : MonoBehaviour {
 
 	void LoadNextLevel()
 	{
-		if (currentLevel < 2)
+		Time.timeScale = 1f;
+		if (currentLevel < 3) //max levels
 		{
 			currentLevel += 1;
 			print (currentLevel);
 			SaveGame();
-			Application.LoadLevel(currentLevel);
+			Application.LoadLevel(currentLevel); //DontDestroyOnLoad() - don't reset value with new scene
 		} else {
 			print ("You win!");
 		}
@@ -107,6 +106,7 @@ public class GameManager : MonoBehaviour {
 			if (GUI.Button(new Rect(winScreenRect.x + 20, winScreenRect.y + winScreenRect.height - 60, 100, 40), "Quit"))
 			{
 				Application.LoadLevel("main_menu");
+				Time.timeScale = 1f;
 			}
 
 			GUI.Label(new Rect(winScreenRect.x + 20, winScreenRect.y + 40, 300, 50), currentScore.ToString() + " Score");
