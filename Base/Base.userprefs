@@ -1,10 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\Base2\Assets\Scripts\GameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\LevelLoader.cs" Line="8" Column="23" />
-      <File FileName="Assets\Scripts\Player.cs" Line="42" Column="114" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="31" Column="15" />
+      <File FileName="..\Base2\Assets\Scripts\GameManager.cs" Line="16" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
