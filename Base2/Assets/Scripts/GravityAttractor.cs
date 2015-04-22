@@ -4,8 +4,7 @@ using System.Collections;
 public class GravityAttractor : MonoBehaviour {
 	
 	public float gravity = -9.8f;
-	
-	
+
 	public void Attract(Transform body) {
 		Vector3 gravityUp = (body.position - transform.position).normalized; //target direction / gravity
 		Vector3 localUp = body.up; //object gravity

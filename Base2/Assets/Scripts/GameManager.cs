@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
 			print (currentLevel);
 			SaveGame();
 			//Application.LoadLevel ("Level " + currentLevel.ToString ()); //load by name instead of id
-			int nextLevel = currentLevel-1;
+			//int nextLevel = currentLevel-1;
 			Application.LoadLevel("Level " + currentLevel); //level name
 			//DontDestroyOnLoad() - don't reset value with new scene
 		} else {
