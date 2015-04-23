@@ -53,7 +53,8 @@ public class FirstPersonController2 : MonoBehaviour {
 			verticalVelocity = jumpStrength;
 		} 
 
-		Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
+		//Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
+		Vector3 speed = new Vector3(forwardSpeed, sideSpeed, verticalVelocity);
 		
 		speed = transform.rotation * speed;
 
