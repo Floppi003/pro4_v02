@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AudioCollider.cs" />
      <Compile Include="Assets\Scripts\BlockScript.cs" />
+     <Compile Include="Assets\Scripts\EyePositionDataComponent.cs" />
      <Compile Include="Assets\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Scripts\GazePointDataComponent.cs" />
      <Compile Include="Assets\Scripts\PlayerRaycasting.cs" />
