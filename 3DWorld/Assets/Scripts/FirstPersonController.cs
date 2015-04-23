@@ -92,6 +92,8 @@ public class FirstPersonController : MonoBehaviour {
 
 
 
+
+
 		// change color
 		//GetComponent<Renderer>().material.color = Color.red;
 
