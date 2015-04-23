@@ -3,6 +3,63 @@ using System.Collections;
 
 [RequireComponent (typeof(CharacterController))]
 public class FirstPersonController2 : MonoBehaviour {
+	/*
+	public Vector3 gravity = new Vector3(0,-9.81,0);
+	public float movementSpeed = 5;
+
+	private CharacterController cc;
+	private Vector3 movement = new Vector3(0,0,0);
+
+	void Start() {
+		cc = GetComponent<CharacterController>();
+	}
+
+
+	public void Update() {	
+		// handle input 
+		Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis ("Vertical"));
+
+		// add movement
+		cc.Move (movement * movementSpeed * Time.deltaTime);
+		// add gravity
+		cc.Move(gravity * Time.deltaTime);
+	}
+
+	public void setGravity(Vector3 gravity) {
+		this.gravity = gravity;
+	}
+
+
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public float movementSpeed = 8.0f; //movement speed of the character controller
 	public float mouseSensivity = 1.5f; //camera speed (mouse)
@@ -53,8 +110,9 @@ public class FirstPersonController2 : MonoBehaviour {
 			verticalVelocity = jumpStrength;
 		} 
 
-		//Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
-		Vector3 speed = new Vector3(forwardSpeed, sideSpeed, verticalVelocity);
+
+		Vector3 speed = new Vector3(sideSpeed, verticalVelocity, forwardSpeed);
+		//Vector3 speed = new Vector3(forwardSpeed, sideSpeed, verticalVelocity);
 		
 		speed = transform.rotation * speed;
 
@@ -99,3 +157,4 @@ public class FirstPersonController2 : MonoBehaviour {
 		//cc.Move (movementSpeed*Time.deltaTime);
 	}
 }
+
