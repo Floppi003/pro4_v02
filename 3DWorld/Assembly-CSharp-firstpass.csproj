@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\ActivatableComponent.cs" />
-     <Compile Include="Assets\Standard Assets\EyeXFramework\Components\EyePositionDataComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\EyeXEngineAvailabilityComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\FixationDataComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\GazeAwareComponent.cs" />
@@ -84,10 +83,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Dominik/Documents/GitHub/pro4_v02/3DWorld/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Floppi/Desktop/FH_Semester_04/pro4_v02/3DWorld/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Dominik/Documents/GitHub/pro4_v02/3DWorld/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Floppi/Desktop/FH_Semester_04/pro4_v02/3DWorld/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

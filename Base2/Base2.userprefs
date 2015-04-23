@@ -1,11 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GravityAttractor.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FirstPersonController2.cs">
     <Files>
-      <File FileName="Assets\Scripts\FirstPersonController2.cs" Line="57" Column="16" />
-      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="54" Column="28" />
-      <File FileName="Assets\Scripts\GravityBody.cs" Line="38" Column="27" />
-      <File FileName="Assets\Scripts\GravityAttractor.cs" Line="17" Column="2" />
+      <File FileName="Assets\Scripts\FirstPersonController2.cs" Line="114" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
