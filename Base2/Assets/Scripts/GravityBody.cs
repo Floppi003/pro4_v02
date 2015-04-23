@@ -49,5 +49,8 @@ public class GravityBody : MonoBehaviour {
 
 	targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 	targetGravity.Attract (transform);
+
+		//linear interpolation
+		//Zielposition über Zeitraum
 	}
 }
