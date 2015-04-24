@@ -42,22 +42,18 @@ public class FirstPersonController : MonoBehaviour {
 		
 		// Jump
 		if (Input.GetButtonDown("Jump")) {
-			if (grounded) {
+			Debug.Log("Jump!");
+			if (IsGrounded()) {
 				GetComponent<Rigidbody>().AddForce(transform.up * jumpForce);
+				Debug.Log("Grounded!");
 			}
 		}
-		
-		// Grounded check
-		Ray ray = new Ray(transform.position, -transform.up);
-		RaycastHit hit;
-		
-		if (Physics.Raycast(ray, out hit, 1 + .2f, groundedMask)) { //out is similar to ref (initialize) - changes original variable value
-			grounded = true;
-		}
-		else {
-			grounded = false;
-		}
-		
+	}
+	
+	bool IsGrounded ()
+	{
+		//Physics.Raycast(ray, out hit, 1 + .2f, groundedMask
+		return (Physics.Raycast (transform.position, - transform.up, 1 + 0.1f)); //letzter Parameter groundedMask
 	}
 	
 	void FixedUpdate() {
