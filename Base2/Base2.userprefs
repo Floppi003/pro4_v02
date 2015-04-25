@@ -1,12 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FirstPersonController2.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\EyePositionDataComponent.cs">
     <Files>
-      <File FileName="Assets\Scripts\TestController.cs" Line="6" Column="1" />
-      <File FileName="Assets\Scripts\FirstPersonController2.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GravityAttractor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GravityBody.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="56" Column="108" />
+      <File FileName="Assets\Scripts\EyePositionDataComponent.cs" Line="76" Column="5" />
+      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

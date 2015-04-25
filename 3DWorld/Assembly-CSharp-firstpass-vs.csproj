@@ -39,14 +39,15 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>E:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\ActivatableComponent.cs" />
+     <Compile Include="Assets\Standard Assets\EyeXFramework\Components\EyePositionDataComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\EyeXEngineAvailabilityComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\FixationDataComponent.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\Components\GazeAwareComponent.cs" />
@@ -80,13 +81,13 @@
      <Compile Include="Assets\Standard Assets\EyeXFramework\Win32Helpers.cs" />
      <Compile Include="Assets\Standard Assets\EyeXFramework\WindowHelpers.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>E:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Dominik/Desktop/FH HGB/SS15/PRO4/Unity1/PRO4/pro4_v02/3DWorld/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Floppi/Desktop/FH_Semester_04/pro4_v02/3DWorld/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Dominik/Desktop/FH HGB/SS15/PRO4/Unity1/PRO4/pro4_v02/3DWorld/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Floppi/Desktop/FH_Semester_04/pro4_v02/3DWorld/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
