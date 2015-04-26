@@ -9,8 +9,21 @@ public class FirstPersonController : MonoBehaviour {
 	public float mouseSensitivityY = 250;
 	public float walkSpeed = 8; //movement/walking speed
 	public float jumpForce = 300; //jump height/strength
-	public LayerMask groundedMask; //mask for raytracing/jumping - reference plane for the raycast
-	
+	public LayerMask groundedMask; //mask for raytracing/jumping - reference plane for the raycast#
+
+
+	// audio files
+	public AudioClip greenClip1;
+	public AudioClip greenClip2;
+	public AudioClip greenClip3;
+	public AudioClip redClip1;
+	public AudioClip redClip2;
+	public AudioClip blueClip1;
+	public AudioClip blueClip2;
+
+	private float timeSinceLastButtonAudioPlay = 0.0f;
+
+
 	// System vars
 	bool grounded;
 	Vector3 moveAmount;
@@ -25,6 +38,8 @@ public class FirstPersonController : MonoBehaviour {
 	}
 	
 	void Update() {
+
+		timeSinceLastButtonAudioPlay += Time.deltaTime;
 		
 		// Look rotation:
 		transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime);
@@ -61,4 +76,62 @@ public class FirstPersonController : MonoBehaviour {
 		Vector3 localMove = transform.TransformDirection(moveAmount) * Time.fixedDeltaTime; //transform to local space (instead of world space - move on the surface of the sphere)
 		GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + localMove);
 	}
+
+
+	public void playGreenSound() {
+		if (timeSinceLastButtonAudioPlay < 3.0f) {
+			return;
+		}
+
+		timeSinceLastButtonAudioPlay = 0.0f;
+
+
+		Debug.Log ("play Green sound called");
+		float random = Random.Range (0.0f, 3.0f);
+
+		if (random < 1.0f) {
+			GetComponent<AudioSource> ().PlayOneShot (this.greenClip1);
+		} else if (random < 2.0f) {
+			GetComponent<AudioSource> ().PlayOneShot (this.greenClip2);
+		} else {
+			GetComponent<AudioSource> ().PlayOneShot (this.greenClip3);
+		}
+	}
+
+	public void playRedSound() {
+		if (timeSinceLastButtonAudioPlay < 3.0f) {
+			return;
+		}
+		
+		timeSinceLastButtonAudioPlay = 0.0f;
+
+
+		Debug.Log ("play Red sound called");
+		float random = Random.Range (0.0f, 2.0f);
+
+		if (random < 1.0f) {
+			GetComponent<AudioSource> ().PlayOneShot (this.redClip1);
+		} else {
+			GetComponent<AudioSource> ().PlayOneShot (this.redClip2);
+		}
+	}
+
+	public void playBlueSound() {
+		if (timeSinceLastButtonAudioPlay < 3.0f) {
+			return;
+		}
+		
+		timeSinceLastButtonAudioPlay = 0.0f;
+
+
+		Debug.Log ("play Blue sound called");
+		float random = Random.Range (0.0f, 2.0f);
+
+		if (random < 1.0f) {
+			GetComponent<AudioSource> ().PlayOneShot (this.blueClip1);
+		} else {
+			GetComponent<AudioSource> ().PlayOneShot (this.blueClip2);
+		}
+	}
 }
+

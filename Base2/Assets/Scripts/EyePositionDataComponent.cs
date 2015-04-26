@@ -125,10 +125,12 @@ public class EyePositionDataComponent : MonoBehaviour
 
 			if (eyesClosedCounter > 24) {
 				bridge.transform.localScale = new Vector3(1, 1, 6);
-				GetComponent<BridgeCollider>().enabled = false;
+				GameObject.Find ("BridgeCollider").GetComponent<BoxCollider>().enabled = false;
+				//GetComponent<BridgeCollider>().enabled = false;
 			} else {
 				bridge.transform.localScale = new Vector3(1, 1, 0.1f);
-				GetComponent<BridgeCollider>().enabled = true;
+				GameObject.Find ("BridgeCollider").GetComponent<BoxCollider>().enabled = true;
+				//GetComponent<BridgeCollider>().enabled = true;
 			}
 			
 		} else {
