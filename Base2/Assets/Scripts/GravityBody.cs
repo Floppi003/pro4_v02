@@ -57,7 +57,7 @@ public class GravityBody : MonoBehaviour {
 			// Apply downwards gravity to body
 			transform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
 			// Allign bodies up axis with the centre of planet
-			transform.rotation = Quaternion.FromToRotation(gravityUp,gravityUp) * transform.rotation;
+			transform.rotation = Quaternion.FromToRotation(transform.up,gravityUp) * transform.rotation;
 		}
 		//linear interpolation
 		//Zielposition über Zeitraum
