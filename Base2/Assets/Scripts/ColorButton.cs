@@ -19,10 +19,10 @@ public class ColorButton : MonoBehaviour {
 		if (other.tag == "ColorButton") {
 			Debug.Log ("Button!!!!!!!!");
 
-			other.GetComponentsInChildren<MeshRenderer>().
+			//other.GetComponentsInChildren<MeshRenderer>().
 
 
-			other.GetComponent<MeshRenderer>().material = (Material)Resources.Load("Button1", typeof(Material));
+			//other.GetComponent<MeshRenderer>().material = (Material)Resources.Load("Button1", typeof(Material));
 		}
 		Debug.Log ("OnTriggerEnter");
 		//other.gameObject.GetComponent<AudioSource> ().PlayOneShot (other.gameObject.GetComponent<FirstPersonController>().helloClip);

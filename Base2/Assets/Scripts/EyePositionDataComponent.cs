@@ -172,9 +172,12 @@ public class EyePositionDataComponent : MonoBehaviour
 
 				// check if eyes were closed 
 				if (leftCount == 0 && rightCount == 0 && bothCount == 0) {
+					Debug.Log ("EYES LONG CLOSED");
 					// both eyes were closed for a while, if you are in felldown mode respawn
 					if (GameObject.Find ("Player").GetComponent<FirstPersonController>().isInFellofZone) {
-						// 
+						// respawn player
+						Debug.Log ("respawn called");
+						GameObject.Find ("Player").GetComponent<FirstPersonController>().respawn ();
 					}
 				}
 

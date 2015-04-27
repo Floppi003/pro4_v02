@@ -19,9 +19,21 @@ public class BridgeCollider : MonoBehaviour {
 			Vector3 position = other.gameObject.transform.position;
 			other.gameObject.transform.position = new Vector3 (position.x, position.y, position.z + randomNumber);
 
-		// if it is the floor below the bridge, move the player back to the beginning
+			// if it is the floor below the bridge, move the player back to the beginning
 		} else if (objectName.Equals ("BridgeFloorless")) {
-			other.gameObject.transform.position = new Vector3(25.1f, 1.32f, -0.61f);
+			FirstPersonController fps = GameObject.Find ("Player").GetComponent<FirstPersonController>();
+			if(!fps.isInFellofZone) {
+				fps.playFellofBridgeSound ();
+			}
+			fps.isInFellofZone = true;
+			fps.fellOfBridgeCounter++;
+		} else if (objectName.Equals ("RedEyeLeftEyeFloorlessCollider")) {
+			FirstPersonController fps = GameObject.Find ("Player").GetComponent<FirstPersonController>();
+			if (!fps.isInFellofZone) {
+				fps.playFellofGeneralSound ();
+			}
+			fps.isInFellofZone = true;
+			fps.fellOfBridgeCounter++;
 		}
 
 
