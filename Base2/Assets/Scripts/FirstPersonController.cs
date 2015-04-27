@@ -100,7 +100,7 @@ public class FirstPersonController : MonoBehaviour {
 		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f * damping); //ref allows to modify a global variable
 
 		// Jump
-		if (inAir && GetComponent<Rigidbody> ().position.y == 1) {
+		if (inAir && GetComponent<Rigidbody> ().position.y <= 1.0001f) {
 			inAir = false;
 			jumpEnd = GetComponent<Rigidbody> ().position; //-----------
 			jumpWidth = (jumpEnd - jumpStart).magnitude;
@@ -117,8 +117,8 @@ public class FirstPersonController : MonoBehaviour {
 		}
 
 		//----------------
-		if (Time.time > 3 && jumpHeight <= GetComponent<Rigidbody> ().position.y) { //-----------
-			jumpHeight = GetComponent<Rigidbody> ().position.y; 
+		if (Time.time > 3 && jumpHeight <= GetComponent<Rigidbody> ().position.y - 1) { //-----------
+			jumpHeight = GetComponent<Rigidbody> ().position.y - 1; 
 		}
 
 			
