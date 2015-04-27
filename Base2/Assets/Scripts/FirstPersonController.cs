@@ -140,7 +140,7 @@ public class FirstPersonController : MonoBehaviour {
 	bool IsGrounded ()
 	{
 		//Physics.Raycast(ray, out hit, 1 + .2f, groundedMask
-		return (Physics.Raycast (transform.position, - transform.up, 1 + 0.3f)); //letzter Parameter groundedMask
+		return (Physics.Raycast (transform.position, - transform.up, 1 + 0.3f, groundedMask)); //letzter Parameter groundedMask
 	}
 	
 	void FixedUpdate() {
