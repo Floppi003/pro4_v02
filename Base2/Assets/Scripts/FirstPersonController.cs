@@ -155,7 +155,9 @@ public class FirstPersonController : MonoBehaviour {
 
 
 	public void respawn() {
+		Debug.Log ("respawn called");
 		this.transform.position = new Vector3(25.1f, 1.32f, -0.61f);
+		this.isInFellofZone = false;
 	}
 
 
