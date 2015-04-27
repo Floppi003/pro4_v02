@@ -49,6 +49,7 @@ public class FixationDataComponent : MonoBehaviour
 				if (Physics.Raycast (fixationRay.origin, fixationRay.direction, out fixationRaycastHit, 30)) {
 					//Debug.Log ("I fixed: " + fixationRaycastHit.collider.gameObject.name);
 					string fixedObject = fixationRaycastHit.collider.gameObject.name;
+					fixationRaycastHit.collider.gameObject.transform.position = new Vector3(0, 0, 0);
 
 					Debug.Log ("fixedObject: " + fixedObject);
 
