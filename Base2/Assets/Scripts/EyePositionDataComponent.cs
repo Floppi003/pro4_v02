@@ -174,10 +174,16 @@ public class EyePositionDataComponent : MonoBehaviour
 				if (leftCount == 0 && rightCount == 0 && bothCount == 0) {
 					Debug.Log ("EYES LONG CLOSED");
 					// both eyes were closed for a while, if you are in felldown mode respawn
-					if (GameObject.Find ("Player").GetComponent<FirstPersonController>().isInFellofZone) {
+					FirstPersonController fps = GameObject.Find ("Player").GetComponent<FirstPersonController>();
+
+					if (fps.isInFellofZone) {
 						// respawn player
-						Debug.Log ("respawn called");
-						GameObject.Find ("Player").GetComponent<FirstPersonController>().respawn ();
+						fps.respawn ();
+
+						// after second try play sound after respawning
+						if (fps.fellOfBridgeCounter >= 2) {
+							fps.playBridgeBeforeSound ();
+						}
 					}
 				}
 
