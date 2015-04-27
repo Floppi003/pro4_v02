@@ -122,7 +122,7 @@ public class EyePositionDataComponent : MonoBehaviour
 
 
 			// calculate the amount of each eye-State in the queue!
-			if (this.eyesOpenedQueue.Count > 10) {
+			if (this.eyesOpenedQueue.Count > 30) {
 				EyesOpened[] eyesOpenedArray = this.eyesOpenedQueue.ToArray();
 				int noneCount = 0;
 				int leftCount = 0;
@@ -165,7 +165,7 @@ public class EyePositionDataComponent : MonoBehaviour
 				Debug.Log ("bothCont: " + bothCount);
 
 
-				if (noneCount >= leftEyeOpenedCounter && noneCount >= rightEyeOpenedCounter && noneCount >= bothCount) {
+				if (noneCount >= leftCount && noneCount >= rightCount && noneCount >= bothCount) {
 					// "none" was most often recognized
 					this.hideLeftEyeObjects ();
 					this.hideRightEyeObjects ();
@@ -185,8 +185,8 @@ public class EyePositionDataComponent : MonoBehaviour
 
 				} else {
 					// "both" was most often recognized
-					this.showLeftEyeObjects();
-					this.showRightEyeObjects();
+					this.hideLeftEyeObjects();
+					this.hideRightEyeObjects();
 					Debug.Log ("BOTH");
 				}
 
