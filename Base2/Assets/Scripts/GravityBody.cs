@@ -5,6 +5,8 @@ using System.Collections;
 public class GravityBody : MonoBehaviour {
 	
 	public float gravity = -9.8f;
+	public Vector3 gravityUp = new Vector3(0,1,0);
+
 	GravityAttractor targetGravity;
 	bool planetGravity = false;
 	GameObject player;
@@ -51,7 +53,6 @@ public class GravityBody : MonoBehaviour {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 			targetGravity.Attract (transform);
 		} else {
-			Vector3 gravityUp = Vector3.up;
 			Vector3 localUp = transform.up; //object gravity
 			
 			// Apply downwards gravity to body

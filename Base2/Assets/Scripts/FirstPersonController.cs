@@ -9,6 +9,7 @@ public class FirstPersonController : MonoBehaviour {
 	public float mouseSensitivityY = 250;
 	public float walkSpeed = 8; //movement/walking speed
 	public float jumpForce = 300; //jump height/strength
+	public float jumpDamping = 2; // reduced movement while jumping
 	public LayerMask groundedMask; //mask for raytracing/jumping - reference plane for the raycast#
 
 
@@ -30,7 +31,26 @@ public class FirstPersonController : MonoBehaviour {
 	Vector3 smoothMoveVelocity;
 	float verticalLookRotation;
 	Transform cameraTransform;
-	
+
+	/**/
+	private float collisionAng = 0.0f;
+	/*
+	void Update() {
+		//Here move your controller and fr slope angle:
+		if(myAng < 100) {
+			print("under 100");
+		} else {
+			//Stairs animation
+		}
+	}
+	*/
+	void OnCollisionStay(Collision collisionInfo)
+	{
+		print ("Collision!");
+		Vector3 localUp = transform.up;
+		collisionAng = Vector3.Angle(localUp, collisionInfo.contacts[0].normal);
+		print (collisionAng);
+	}
 	
 	void Awake() {
 		Screen.lockCursor = true;
@@ -38,9 +58,25 @@ public class FirstPersonController : MonoBehaviour {
 	}
 	
 	void Update() {
+		/**/
+
+		if(collisionAng <= 45 && collisionAng >= 1) {
+			print("Don't fall!");
+		} else {
+			print("Do your thing.");
+		}
+
+
+		/**/
 
 		timeSinceLastButtonAudioPlay += Time.deltaTime;
-		
+		// set dampig dependend if grounded or not
+		float damping;
+		if (IsGrounded()) {
+			damping = 1;
+		} else {
+			damping = jumpDamping;
+		}
 		// Look rotation:
 		transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime);
 		verticalLookRotation += Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
@@ -50,11 +86,12 @@ public class FirstPersonController : MonoBehaviour {
 		// Calculate movement:
 		float inputX = Input.GetAxisRaw("Horizontal");
 		float inputY = Input.GetAxisRaw("Vertical");
-		
+
 		Vector3 moveDir = new Vector3(inputX, 0, inputY).normalized;
 		Vector3 targetMoveAmount = moveDir * walkSpeed;
-		moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount,ref smoothMoveVelocity,.15f); //ref allows to modify a global variable
-		
+
+		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f * damping); //ref allows to modify a global variable
+
 		// Jump
 		if (Input.GetButtonDown("Jump")) {
 			Debug.Log("Jump!");
@@ -68,7 +105,7 @@ public class FirstPersonController : MonoBehaviour {
 	bool IsGrounded ()
 	{
 		//Physics.Raycast(ray, out hit, 1 + .2f, groundedMask
-		return (Physics.Raycast (transform.position, - transform.up, 1 + 0.1f)); //letzter Parameter groundedMask
+		return (Physics.Raycast (transform.position, - transform.up, 1 + 0.3f)); //letzter Parameter groundedMask
 	}
 	
 	void FixedUpdate() {
