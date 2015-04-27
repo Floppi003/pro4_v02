@@ -29,6 +29,18 @@ public class FirstPersonController : MonoBehaviour {
 	public AudioClip blueClip1;
 	public AudioClip blueClip2;
 
+	// audio files bridge and falldown
+	public AudioClip bridgeBeforeClip1;
+	public AudioClip bridgeBeforeClip2;
+	public AudioClip fellofGeneralClip1;
+	public AudioClip fellofGeneralAdvancedClip1;
+	public AudioClip fellofBridgeClip1;
+	public AudioClip fellofBridgeClip2;
+	private int fellofClipsPlayed = 0;
+
+	public bool isInFellofZone = false;
+	public int fellOfBridgeCounter = 0;
+
 	private float timeSinceLastButtonAudioPlay = 0.0f;
 
 
@@ -138,6 +150,21 @@ public class FirstPersonController : MonoBehaviour {
 	}
 
 
+
+
+
+
+	public void respawn() {
+		this.transform.position = new Vector3(25.1f, 1.32f, -0.61f);
+	}
+
+
+
+
+
+
+	// play Audio Files 
+
 	public void playGreenSound() {
 		if (timeSinceLastButtonAudioPlay < 3.0f) {
 			return;
@@ -192,6 +219,61 @@ public class FirstPersonController : MonoBehaviour {
 		} else {
 			GetComponent<AudioSource> ().PlayOneShot (this.blueClip2);
 		}
+	}
+
+	public void playBridgeBeforeSound() {
+		// plays bridge before sound
+		float random = Random.Range (0.0f, 2.0f);
+
+		if (random < 1.0f) {
+			GetComponent<AudioSource>().PlayOneShot (this.bridgeBeforeClip1);
+		} else {
+			GetComponent<AudioSource>().PlayOneShot (this.bridgeBeforeClip2);
+		}
+	}
+
+	public void playFellofGeneralSound() {
+		// only plays general sound
+		float random;
+
+		if (this.fellofClipsPlayed > 2) {
+			random = Random.Range (0.0f, 2.0f);
+		} else {
+			random = Random.Range (0.0f, 0.99f);
+		}
+
+
+		if (random < 1.0f) {
+			GetComponent<AudioSource>().PlayOneShot (this.fellofGeneralClip1);
+		} else {
+			GetComponent<AudioSource>().PlayOneShot (this.fellofGeneralAdvancedClip1);
+		}
+
+		this.fellofClipsPlayed++;
+	}
+
+	public void playFellofBridgeSound() {
+		// plays fellof bridge and fellof general
+		float random;
+
+		if (this.fellofClipsPlayed > 2) {
+			random = Random.Range (0.0f, 4.0f);
+		} else {
+			random = Random.Range(0.0f, 3.0f);
+		}
+
+
+		if (random < 1.0f) {
+			GetComponent<AudioSource>().PlayOneShot (this.fellofGeneralClip1);
+		} else if (random < 2.0f) {
+			GetComponent<AudioSource>().PlayOneShot (this.fellofBridgeClip1);
+		} else if (random < 3.0f) {
+			GetComponent<AudioSource>().PlayOneShot (this.fellofBridgeClip2);
+		} else {
+			GetComponent<AudioSource>().PlayOneShot (this.fellofGeneralAdvancedClip1);
+		}
+
+		this.fellofClipsPlayed++;
 	}
 }
 

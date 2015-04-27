@@ -88,36 +88,15 @@ public class EyePositionDataComponent : MonoBehaviour
 			} else if (lastEyePosition.LeftEye.IsValid && !lastEyePosition.RightEye.IsValid) {
 				// only left eye is opened
 				this.eyesOpenedQueue.Enqueue (EyesOpened.Left);
-				/*
-				this.leftEyeOpenedCounter++;
-				this.rightEyeOpenedCounter = this.rightEyeOpenedCounter / 3;
-				this.hideRightEyeObjects();
-				this.showLeftEyeObjects();
-				*/
-
 
 			} else if (!lastEyePosition.LeftEye.IsValid && lastEyePosition.RightEye.IsValid) {
 				// only right eye is opened
 				this.eyesOpenedQueue.Enqueue (EyesOpened.Right);
 
-				/*
-				this.rightEyeOpenedCounter++;
-				this.leftEyeOpenedCounter = this.leftEyeOpenedCounter / 3;
-				this.hideLeftEyeObjects ();
-				this.showRightEyeObjects ();
-				*/
-
 			} else {
 				// both eyes opened
 				this.eyesOpenedQueue.Enqueue (EyesOpened.Both);
 				eyesClosedCounter = eyesClosedCounter / 3;
-
-				/*
-				this.leftEyeOpenedCounter = this.leftEyeOpenedCounter / 2;
-				this.rightEyeOpenedCounter = this.rightEyeOpenedCounter / 2;
-				this.hideLeftEyeObjects();
-				this.hideRightEyeObjects ();
-				*/
 			}
 
 
@@ -165,6 +144,7 @@ public class EyePositionDataComponent : MonoBehaviour
 				Debug.Log ("bothCont: " + bothCount);
 
 
+				// check which left-eye / right-eye objects should be visible
 				if (noneCount >= leftCount && noneCount >= rightCount && noneCount >= bothCount) {
 					// "none" was most often recognized
 					this.hideLeftEyeObjects ();
@@ -190,6 +170,14 @@ public class EyePositionDataComponent : MonoBehaviour
 					Debug.Log ("BOTH");
 				}
 
+				// check if eyes were closed 
+				if (leftCount == 0 && rightCount == 0 && bothCount == 0) {
+					// both eyes were closed for a while, if you are in felldown mode respawn
+					if (GameObject.Find ("Player").GetComponent<FirstPersonController>().isInFellofZone) {
+						// 
+					}
+				}
+
 				this.eyesOpenedQueue.Dequeue ();
 			}
 			
@@ -209,6 +197,10 @@ public class EyePositionDataComponent : MonoBehaviour
 				GameObject.Find ("BridgeCollider").GetComponent<BoxCollider>().enabled = true;
 				//GetComponent<BridgeCollider>().enabled = true;
 			}
+
+
+
+
 			
 		} else {
 			//Debug.Log ("leftEyePosition INVALID!");
