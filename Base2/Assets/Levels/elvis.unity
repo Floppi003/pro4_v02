@@ -7504,6 +7504,14 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 478161063}
+    - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
+      propertyPath: gravityVector.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
+      propertyPath: gravityVector.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
   m_IsPrefabParent: 0

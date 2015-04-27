@@ -6,7 +6,7 @@ public class GravityBody : MonoBehaviour {
 	
 	public float gravity = -11f;
 	public Vector3 gravityUp = new Vector3(0,1,0);
-
+	
 	GravityAttractor targetGravity;
 	bool planetGravity = false;
 	GameObject player;
@@ -54,19 +54,13 @@ public class GravityBody : MonoBehaviour {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 			targetGravity.Attract (transform);
 		} else {
-
-
-
-
-
-
 			// Apply downwards gravity to body
 			transform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
 			// Allign bodies up axis with the centre of planet
 			Quaternion targetRotation = Quaternion.FromToRotation(transform.up,gravityUp) * transform.rotation;
 			float angularSpeed = 3.0f;
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, angularSpeed);
-			print("Player: " + transform.rotation + ", target: " + targetRotation);
+			print("Player: " + transform.up.x + " " + transform.up.y + " " + transform.up.z + ", target: " + gravityUp.x + " " + gravityUp.y + " " + gravityUp.z);
 		}
 		//linear interpolation
 		//Zielposition über Zeitraum
