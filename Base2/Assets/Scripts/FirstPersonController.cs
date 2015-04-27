@@ -12,6 +12,13 @@ public class FirstPersonController : MonoBehaviour {
 	public float jumpDamping = 2; // reduced movement while jumping
 	public LayerMask groundedMask; //mask for raytracing/jumping - reference plane for the raycast#
 
+	// ---- jump width tests
+	public float jumpHeight = 0;
+	public float jumpWidth = 0;
+	private Vector3 jumpStart;
+	private Vector3 jumpEnd;
+	public bool inAir;
+	//
 
 	// audio files
 	public AudioClip greenClip1;
@@ -93,13 +100,29 @@ public class FirstPersonController : MonoBehaviour {
 		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f * damping); //ref allows to modify a global variable
 
 		// Jump
+		if (inAir && GetComponent<Rigidbody> ().position.y == 1) {
+			inAir = false;
+			jumpEnd = GetComponent<Rigidbody> ().position; //-----------
+			jumpWidth = (jumpEnd - jumpStart).magnitude;
+		}
+
 		if (Input.GetButtonDown("Jump")) {
 			Debug.Log("Jump!");
 			if (IsGrounded()) {
+				jumpStart = GetComponent<Rigidbody>().position; //-----------
+				inAir = true;
 				GetComponent<Rigidbody>().AddForce(transform.up * jumpForce);
 				Debug.Log("Grounded!");
 			}
 		}
+
+		//----------------
+		if (Time.time > 3 && jumpHeight <= GetComponent<Rigidbody> ().position.y) { //-----------
+			jumpHeight = GetComponent<Rigidbody> ().position.y; 
+		}
+
+			
+			//
 	}
 	
 	bool IsGrounded ()

@@ -14,6 +14,7 @@ public class GravityBody : MonoBehaviour {
 	GameObject targetPlanet;
 	
 	void Awake () {
+		gravityUp = transform.up;
 		
 		planets = GameObject.FindGameObjectsWithTag ("Planet");
 		if (planets.Length > 0) {
@@ -53,8 +54,6 @@ public class GravityBody : MonoBehaviour {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 			targetGravity.Attract (transform);
 		} else {
-			Vector3 localUp = transform.up; //object gravity
-			
 			// Apply downwards gravity to body
 			transform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
 			// Allign bodies up axis with the centre of planet
