@@ -3,6 +3,8 @@ using System.Collections;
 
 public class ColorButton : MonoBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () {
 	
@@ -17,8 +19,10 @@ public class ColorButton : MonoBehaviour {
 		if (other.tag == "ColorButton") {
 			Debug.Log ("Button!!!!!!!!");
 
+			other.GetComponentsInChildren<MeshRenderer>().
 
-			other.material.
+
+			other.GetComponent<MeshRenderer>().material = (Material)Resources.Load("Button1", typeof(Material));
 		}
 		Debug.Log ("OnTriggerEnter");
 		//other.gameObject.GetComponent<AudioSource> ().PlayOneShot (other.gameObject.GetComponent<FirstPersonController>().helloClip);

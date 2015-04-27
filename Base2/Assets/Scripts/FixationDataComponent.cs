@@ -54,7 +54,7 @@ public class FixationDataComponent : MonoBehaviour
 					colorCollider.transform.position = fixationRaycastHit.transform.position;
 
 
-					fixationRaycastHit.collider.gameObject.transform.position = new Vector3(0, 0, 0); 
+					//fixationRaycastHit.collider.gameObject.transform.position = new Vector3(0, 0, 0); 
 
 					Debug.Log ("fixedObject: " + fixedObject);
 
