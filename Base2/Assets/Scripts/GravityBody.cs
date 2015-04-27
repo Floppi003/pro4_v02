@@ -54,11 +54,19 @@ public class GravityBody : MonoBehaviour {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 			targetGravity.Attract (transform);
 		} else {
+			//Vector3 sideRoll = new Vector3(gravityUp.x, gravityUp.y, gravityUp.z);
+			//sideRoll.Scale(new Vector3(1,1,-1));
+			//print ("sideroll: " + gravityUp.x + " " + gravityUp.y + " " + gravityUp.z);
+			/*
+			Vector3 sideRoll = new Vector3(0,0,0);;
+			if(gravityUp == new Vector3(0,-1,0)){
+				sideRoll = new Vector3(0,0,-1);
+			}
+			*/
 
-
-
-
-
+			//sideRoll.eulerAngles.Scale (new Vector3(0,0,-1));
+			//sideRoll = Quaternion.AngleAxis(180, Vector3.up) * sideRoll;
+			//sideRoll = Quaternion.AngleAxis(180, Vector3.forward) * sideRoll;
 
 			// Apply downwards gravity to body
 			transform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
