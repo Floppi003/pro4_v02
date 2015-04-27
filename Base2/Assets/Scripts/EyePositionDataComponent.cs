@@ -4,6 +4,8 @@
 
 using Tobii.EyeX.Framework;
 using UnityEngine;
+using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Component that encapsulates a provider for <see cref="EyeXEyePosition"/> data.
@@ -11,6 +13,9 @@ using UnityEngine;
 [AddComponentMenu("Tobii EyeX/Eye Position Data")]
 public class EyePositionDataComponent : MonoBehaviour
 {
+
+	enum EyesOpened{None, Left, Right, Both};
+
     public FixationDataMode fixationDataMode;
 
     private EyeXHost _eyexHost;
@@ -18,6 +23,10 @@ public class EyePositionDataComponent : MonoBehaviour
 	private int eyesClosedCounter;
 	private int leftEyeOpenedCounter;
 	private int rightEyeOpenedCounter;
+
+
+
+	private Queue<EyesOpened> eyesOpenedQueue;
 
     /// <summary>
     /// Gets the last eye position.
@@ -29,6 +38,7 @@ public class EyePositionDataComponent : MonoBehaviour
 		eyesClosedCounter = 0;
         _eyexHost = EyeXHost.GetInstance();
         _dataProvider = _eyexHost.GetEyePositionDataProvider();
+		eyesOpenedQueue = new Queue<EyesOpened> ();
     }
 
     protected void OnEnable()
@@ -69,53 +79,108 @@ public class EyePositionDataComponent : MonoBehaviour
 
 			if (leftEyePosition.Equals (new Vector3(0, 0, 0)) && rightEyePosition.Equals (new Vector3(0, 0, 0))) {
 				// Eyes closed
+				this.eyesOpenedQueue.Enqueue (EyesOpened.None);
 				eyesClosedCounter++;
 				//Debug.Log ("!!! - !!! both eyes closed!!!!!!!!");
 
 			} else if (leftEyePosition.Equals (new Vector3(0, 0, 0)) && !rightEyePosition.Equals (new Vector3(0, 0, 0))) {
 				// only left eye is opened
+				this.eyesOpenedQueue.Enqueue (EyesOpened.Left);
+				/*
 				this.leftEyeOpenedCounter++;
 				this.rightEyeOpenedCounter = this.rightEyeOpenedCounter / 3;
 				this.hideRightEyeObjects();
 				this.showLeftEyeObjects();
+				*/
 
 
 			} else if (!leftEyePosition.Equals (new Vector3(0, 0, 0)) && rightEyePosition.Equals (new Vector3(0, 0, 0))) {
 				// only right eye is opened
+				this.eyesOpenedQueue.Enqueue (EyesOpened.Right);
+
+				/*
 				this.rightEyeOpenedCounter++;
 				this.leftEyeOpenedCounter = this.leftEyeOpenedCounter / 3;
 				this.hideLeftEyeObjects ();
 				this.showRightEyeObjects ();
+				*/
 
 			} else {
 				// both eyes opened
+				this.eyesOpenedQueue.Enqueue (EyesOpened.Both);
 				eyesClosedCounter = eyesClosedCounter / 3;
 
+				/*
 				this.leftEyeOpenedCounter = this.leftEyeOpenedCounter / 2;
 				this.rightEyeOpenedCounter = this.rightEyeOpenedCounter / 2;
 				this.hideLeftEyeObjects();
 				this.hideRightEyeObjects ();
+				*/
 			}
 
-			/*
-			if ((eyesClosedCounter > leftEyeOpenedCounter && eyesClosedCounter > rightEyeOpenedCounter) || 
-			    (eyesClosedCounter < 10 && leftEyeOpenedCounter < 10 && rightEyeOpenedCounter < 10)) {
 
-				// don't show anything
-				this.hideLeftEyeObjects();
-				this.hideRightEyeObjects();
+			// calculate the amount of each eye-State in the queue!
+			if (this.eyesOpenedQueue.Count > 10) {
+				EyesOpened[] eyesOpenedArray = this.eyesOpenedQueue.ToArray();
+				int noneCount = 0;
+				int leftCount = 0;
+				int rightCount = 0;
+				int bothCount = 0;
 
-			} else if (leftEyeOpenedCounter > rightEyeOpenedCounter) {
-				// show only left objects
-				this.showLeftEyeObjects();
-				this.hideRightEyeObjects();
+				foreach (EyesOpened eyesOpened in eyesOpenedArray) {
 
-			} else {
-				// show only right objects
-				this.showRightEyeObjects();
-				this.hideLeftEyeObjects();
+					switch (eyesOpened) {
+					case EyesOpened.None: {
+						noneCount++;
+						break;
+					} 
+
+					case EyesOpened.Left: {
+						leftCount++;
+						break;
+					}
+
+					case EyesOpened.Right: {
+						rightCount++;
+						break;
+					}
+
+					case EyesOpened.Both: {
+						bothCount++;
+						break;
+					}
+					}
+				}
+
+				Debug.Log ("noneCount: " + noneCount);
+				Debug.Log ("leftCount: " + leftCount);
+				Debug.Log ("rightCount: " + rightCount);
+				Debug.Log ("bothCont: " + bothCount);
+
+				if (noneCount >= leftEyeOpenedCounter && noneCount >= rightEyeOpenedCounter && noneCount >= bothCount) {
+					// "none" was most often recognized
+					this.hideLeftEyeObjects ();
+					this.hideRightEyeObjects ();
+
+				} else if (leftCount >= rightCount && leftCount >= bothCount) {
+					// "left" was most often recognized
+					this.showLeftEyeObjects ();
+					this.hideRightEyeObjects ();
+
+				} else if (rightCount >= bothCount) {
+					// "right" was most often recognized
+					this.hideLeftEyeObjects ();
+					this.showRightEyeObjects ();
+
+				} else {
+					// "both" was most often recognized
+					this.showLeftEyeObjects();
+					this.showRightEyeObjects();
+				}
+
+				this.eyesOpenedQueue.Dequeue ();
 			}
-*/
+			
 
 
 
@@ -128,7 +193,7 @@ public class EyePositionDataComponent : MonoBehaviour
 				GameObject.Find ("BridgeCollider").GetComponent<BoxCollider>().enabled = false;
 				//GetComponent<BridgeCollider>().enabled = false;
 			} else {
-				bridge.transform.localScale = new Vector3(1, 1, 0.1f);
+				bridge.transform.localScale = new Vector3(1, 1, 1.0f);
 				GameObject.Find ("BridgeCollider").GetComponent<BoxCollider>().enabled = true;
 				//GetComponent<BridgeCollider>().enabled = true;
 			}
@@ -143,7 +208,7 @@ public class EyePositionDataComponent : MonoBehaviour
 		GameObject[] leftEyeObjects = GameObject.FindGameObjectsWithTag ("LeftEye");
 		
 		foreach (GameObject leftEyeObject in leftEyeObjects) {
-			leftEyeObject.GetComponent<MeshCollider>().enabled = true;
+			//leftEyeObject.GetComponent<MeshCollider>().enabled = true;
 			leftEyeObject.GetComponent<MeshRenderer>().enabled = true;
 		}
 	}
@@ -152,7 +217,7 @@ public class EyePositionDataComponent : MonoBehaviour
 		GameObject[] rightEyeObjects = GameObject.FindGameObjectsWithTag ("RightEye");
 		
 		foreach (GameObject rightEyeObject in rightEyeObjects) {
-			rightEyeObject.GetComponent<MeshCollider>().enabled = true;
+			//rightEyeObject.GetComponent<MeshCollider>().enabled = true;
 			rightEyeObject.GetComponent<MeshRenderer>().enabled = true;
 		}
 	}
@@ -161,7 +226,7 @@ public class EyePositionDataComponent : MonoBehaviour
 		GameObject[] leftEyeObjects = GameObject.FindGameObjectsWithTag ("LeftEye");
 		
 		foreach (GameObject leftEyeObject in leftEyeObjects) {
-			leftEyeObject.GetComponent<MeshCollider>().enabled = false;
+			//leftEyeObject.GetComponent<MeshCollider>().enabled = false;
 			leftEyeObject.GetComponent<MeshRenderer>().enabled = false;
 		}
 	}
@@ -170,7 +235,7 @@ public class EyePositionDataComponent : MonoBehaviour
 		GameObject[] rightEyeObjects = GameObject.FindGameObjectsWithTag ("RightEye");
 		
 		foreach (GameObject rightEyeObject in rightEyeObjects) {
-			rightEyeObject.GetComponent<MeshCollider>().enabled = false;
+			//rightEyeObject.GetComponent<MeshCollider>().enabled = false;
 			rightEyeObject.GetComponent<MeshRenderer>().enabled = false;
 		}
 	}
