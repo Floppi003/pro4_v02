@@ -15,13 +15,10 @@ public class ColorButton : MonoBehaviour {
 	
 	}
 
-	void OnCollisionEnter(Collider other){
-		if (other.tag == "ColorButton") {
+	void OnCollisionEnter(Collision other){
+		if (other.gameObject.tag == "ColorButton") {
 			Debug.Log ("Button!!!!!!!!");
-
 //			other.GetComponentsInChildren<MeshRenderer>().
-
-
 //			other.GetComponent<MeshRenderer>().material = (Material)Resources.Load("Button1", typeof(Material));
 		}
 		Debug.Log ("OnTriggerEnter");
