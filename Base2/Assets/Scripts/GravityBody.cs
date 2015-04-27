@@ -4,7 +4,7 @@ using System.Collections;
 [RequireComponent (typeof (Rigidbody))]
 public class GravityBody : MonoBehaviour {
 	
-	public float gravity = -9.8f;
+	public float gravity = -11f;
 	public Vector3 gravityUp = new Vector3(0,1,0);
 
 	GravityAttractor targetGravity;

@@ -7,9 +7,9 @@ public class FirstPersonController : MonoBehaviour {
 	// public vars
 	public float mouseSensitivityX = 250;
 	public float mouseSensitivityY = 250;
-	public float walkSpeed = 8; //movement/walking speed
-	public float jumpForce = 300; //jump height/strength
-	public float jumpDamping = 2; // reduced movement while jumping
+	public float walkSpeed = 6; //movement/walking speed
+	public float jumpForce = 260; //jump height/strength
+	public float jumpDamping = 3.5f; // reduced movement while jumping
 	public LayerMask groundedMask; //mask for raytracing/jumping - reference plane for the raycast#
 
 	// ---- jump width tests
