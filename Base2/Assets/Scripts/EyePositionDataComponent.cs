@@ -71,19 +71,21 @@ public class EyePositionDataComponent : MonoBehaviour
 			Vector3 rightEyePosition = new Vector3(lastEyePosition.RightEye.X,
 			                                       lastEyePosition.RightEye.Y,
 			                                       lastEyePosition.RightEye.Z);
+
+
 			
 			
 			//Debug.Log ("leftEyePosition: " + leftEyePosition);
 			//Debug.Log ("rightEyePosition: " + rightEyePosition);
 
 
-			if (leftEyePosition.Equals (new Vector3(0, 0, 0)) && rightEyePosition.Equals (new Vector3(0, 0, 0))) {
+			if (!lastEyePosition.LeftEye.IsValid && !lastEyePosition.RightEye.IsValid) {
 				// Eyes closed
 				this.eyesOpenedQueue.Enqueue (EyesOpened.None);
 				eyesClosedCounter++;
 				//Debug.Log ("!!! - !!! both eyes closed!!!!!!!!");
 
-			} else if (leftEyePosition.Equals (new Vector3(0, 0, 0)) && !rightEyePosition.Equals (new Vector3(0, 0, 0))) {
+			} else if (lastEyePosition.LeftEye.IsValid && !lastEyePosition.RightEye.IsValid) {
 				// only left eye is opened
 				this.eyesOpenedQueue.Enqueue (EyesOpened.Left);
 				/*
@@ -94,7 +96,7 @@ public class EyePositionDataComponent : MonoBehaviour
 				*/
 
 
-			} else if (!leftEyePosition.Equals (new Vector3(0, 0, 0)) && rightEyePosition.Equals (new Vector3(0, 0, 0))) {
+			} else if (!lastEyePosition.LeftEye.IsValid && lastEyePosition.RightEye.IsValid) {
 				// only right eye is opened
 				this.eyesOpenedQueue.Enqueue (EyesOpened.Right);
 
@@ -152,30 +154,40 @@ public class EyePositionDataComponent : MonoBehaviour
 					}
 				}
 
+
+				/*Debug.Log ("leftEyePosition: " + leftEyePosition);
+				Debug.Log ("rightEyePosition: " + rightEyePosition);
+				Debug.Log ("leftEyeIsValid: " + lastEyePosition.LeftEye.IsValid);
+				Debug.Log ("rightEyeIsValid: " + lastEyePosition.RightEye.IsValid);*/
 				Debug.Log ("noneCount: " + noneCount);
 				Debug.Log ("leftCount: " + leftCount);
 				Debug.Log ("rightCount: " + rightCount);
 				Debug.Log ("bothCont: " + bothCount);
 
+
 				if (noneCount >= leftEyeOpenedCounter && noneCount >= rightEyeOpenedCounter && noneCount >= bothCount) {
 					// "none" was most often recognized
 					this.hideLeftEyeObjects ();
 					this.hideRightEyeObjects ();
+					Debug.Log ("NONE");
 
 				} else if (leftCount >= rightCount && leftCount >= bothCount) {
 					// "left" was most often recognized
 					this.showLeftEyeObjects ();
 					this.hideRightEyeObjects ();
+					Debug.Log ("LEFT");
 
 				} else if (rightCount >= bothCount) {
 					// "right" was most often recognized
 					this.hideLeftEyeObjects ();
 					this.showRightEyeObjects ();
+					Debug.Log ("RIGHT");
 
 				} else {
 					// "both" was most often recognized
 					this.showLeftEyeObjects();
 					this.showRightEyeObjects();
+					Debug.Log ("BOTH");
 				}
 
 				this.eyesOpenedQueue.Dequeue ();
