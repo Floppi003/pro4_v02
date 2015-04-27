@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\BridgeCollider.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GravityBody.cs">
     <Files>
-      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="280" Column="1" />
-      <File FileName="Assets\Scripts\FixationDataComponent.cs" Line="116" Column="1" />
-      <File FileName="Assets\Scripts\BridgeCollider.cs" Line="19" Column="41" />
-      <File FileName="Assets\Scripts\EyePositionDataComponent.cs" Line="171" Column="6" />
+      <File FileName="Assets\Scripts\GravityBody.cs" Line="19" Column="43" />
+      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="198" Column="1" />
+      <File FileName="Assets\Scripts\BridgeCollider.cs" Line="11" Column="3" />
+      <File FileName="Assets\Scripts\GravityButton.cs" Line="28" Column="3" />
+      <File FileName="Assets\Scripts\LevelLoader.cs" Line="5" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

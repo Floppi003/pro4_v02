@@ -15,7 +15,7 @@ public class GravityButton : MonoBehaviour {
 	void Update () {
 	
 	}
-
+	/*
 	void OnCollisionEnter(Collider other){
 		if (other.tag == "Player") {
 			Debug.Log ("Player detected");
@@ -27,7 +27,7 @@ public class GravityButton : MonoBehaviour {
 		//other.gameObject.GetComponent<AudioSource> ().PlayOneShot (other.gameObject.GetComponent<FirstPersonController>().helloClip);
 
 	}
-
+*/
 	void OnTriggerStay(Collider other) {
 		if (other.tag == "Player") {
 			Debug.Log ("Player detected");
