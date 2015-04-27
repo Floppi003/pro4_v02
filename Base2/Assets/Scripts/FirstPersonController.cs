@@ -9,6 +9,7 @@ public class FirstPersonController : MonoBehaviour {
 	public float mouseSensitivityY = 250;
 	public float walkSpeed = 8; //movement/walking speed
 	public float jumpForce = 300; //jump height/strength
+	public float jumpDamping = 0; // reduced movement while jumping
 	public LayerMask groundedMask; //mask for raytracing/jumping - reference plane for the raycast#
 
 
@@ -40,7 +41,13 @@ public class FirstPersonController : MonoBehaviour {
 	void Update() {
 
 		timeSinceLastButtonAudioPlay += Time.deltaTime;
-		
+		// set dampig dependend if grounded or not
+		float damping;
+		if (IsGrounded()) {
+			damping = 1;
+		} else {
+			damping = jumpDamping;
+		}
 		// Look rotation:
 		transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * mouseSensitivityX * Time.deltaTime);
 		verticalLookRotation += Input.GetAxis("Mouse Y") * mouseSensitivityY * Time.deltaTime;
@@ -50,11 +57,12 @@ public class FirstPersonController : MonoBehaviour {
 		// Calculate movement:
 		float inputX = Input.GetAxisRaw("Horizontal");
 		float inputY = Input.GetAxisRaw("Vertical");
-		
+
 		Vector3 moveDir = new Vector3(inputX, 0, inputY).normalized;
 		Vector3 targetMoveAmount = moveDir * walkSpeed;
-		moveAmount = Vector3.SmoothDamp(moveAmount,targetMoveAmount,ref smoothMoveVelocity,.15f); //ref allows to modify a global variable
-		
+
+		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f * damping); //ref allows to modify a global variable
+
 		// Jump
 		if (Input.GetButtonDown("Jump")) {
 			Debug.Log("Jump!");
