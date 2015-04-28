@@ -4,26 +4,21 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
 	// Count
-	public int maxLevels = 3; //max id = maxLevels - 1
-	public int currentScore;
-	public int highscore;
-	public int tokenCount;
-	private int totalTokenCount;
+	int maxLevels = 6; //max id = maxLevels - 1
 	public int currentLevel = 1; //start with 1 = id 0
 	public int unlockedLevel = 1; //start with 1 = id 0
 
 	// Timer variables
-	public Rect timerRect;
-	public Color warningColorTimer;
-	public Color defaultColorTimer;
-	public float startTime;
+	//public Rect timerRect;
+	//public Color warningColorTimer;
+	//public Color defaultColorTimer;
 	private string currentTime;
 
 	// GUI SKI
 	public GUISkin skin;
 
 	// References
-	public GameObject tokenParent;
+	//public GameObject tokenParent;
 
 	private bool completed = false;
 	private bool showWinScreen = false;
@@ -31,21 +26,19 @@ public class GameManager : MonoBehaviour {
 
 	void Update()
 	{
-		if (!completed)
-		{
-			startTime -= Time.deltaTime;
-			currentTime = string.Format("{0:0.0}", startTime);
-			if (startTime <= 0)
-			{
-				startTime = 0;
-				//Application.LoadLevel("main_menu");
+		if (Input.GetButtonDown ("PauseMenu") && !completed) {
+			showWinScreen = !showWinScreen;
+			if(showWinScreen){
+				Time.timeScale = 0f;
+			}else{
+				Time.timeScale = 1f;
 			}
 		}
 	}
 
 	void Start()
 	{
-		totalTokenCount = tokenParent.transform.childCount;
+//		totalTokenCount = tokenParent.transform.childCount;
 
 		if (PlayerPrefs.GetInt("Level Unlocked") > 1) //if there are more levels unlocked than level 1, let him play them
 		{
@@ -64,8 +57,10 @@ public class GameManager : MonoBehaviour {
 	
 	public void CompleteLevel()
 	{
-		showWinScreen = true;
+		//showWinScreen = true;
+		Time.timeScale = 0f;
 		completed = true;
+		LoadNextLevel ();
 	}
 
 	void LoadNextLevel()
@@ -95,28 +90,18 @@ public class GameManager : MonoBehaviour {
 			PlayerPrefs.SetInt ("Level Unlocked", unlockedLevel);
 			PlayerPrefs.SetInt ("Current Level", currentLevel);
 		}
-		PlayerPrefs.SetInt("Level: " + currentLevel.ToString() + " Score: ", currentScore);
 	}
 
 	void OnGUI()
 	{
 		GUI.skin = skin;
-		if (startTime < 5f)
-		{
-			skin.GetStyle("Timer").normal.textColor = warningColorTimer;
-		} else {
-			skin.GetStyle("Timer").normal.textColor = defaultColorTimer;
-		}
-		GUI.Label (timerRect, currentTime, skin.GetStyle ("Timer"));
-		GUI.Label (new Rect(45,100,200,200), tokenCount.ToString() + "/" + totalTokenCount.ToString());
+		//GUI.Label (timerRect, currentTime, skin.GetStyle ("Timer"));
+		//GUI.Label (new Rect(45,100,200,200), "Wazzup!");
 
 		if (showWinScreen)
 		{
 			Rect winScreenRect = new Rect(Screen.width/2 - (Screen.width *.5f/2), Screen.height/2 - (Screen.height *.5f/2), Screen.width *.5f, Screen.height *.5f);
 			GUI.Box(winScreenRect, "Yeah");
-
-			int gameTime = (int)startTime;
-			currentScore = tokenCount * gameTime;
 			if (GUI.Button(new Rect(winScreenRect.x + winScreenRect.width - 170, winScreenRect.y + winScreenRect.height - 60, 150, 40), "Continue"))
 			{
 				LoadNextLevel();
@@ -129,7 +114,7 @@ public class GameManager : MonoBehaviour {
 				Time.timeScale = 1f;
 			}
 
-			GUI.Label(new Rect(winScreenRect.x + 20, winScreenRect.y + 40, 300, 50), currentScore.ToString() + " Score");
+			GUI.Label(new Rect(winScreenRect.x + 20, winScreenRect.y + 40, 300, 50), " Score");
 			GUI.Label(new Rect(winScreenRect.x + 20, winScreenRect.y + 70, 300, 50), "Completed Level " + currentLevel);
 		}
 	}

@@ -1,9 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GravityBody.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\GravityBody.cs" Line="77" Column="30" />
-      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GravityBody.cs" Line="63" Column="32" />
+      <File FileName="Assets\Scripts\FirstPersonController.cs" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\LevelLoader.cs" Line="40" Column="66" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="27" Column="2" />
+      <File FileName="Assets\Scripts\Player.cs" Line="15" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
