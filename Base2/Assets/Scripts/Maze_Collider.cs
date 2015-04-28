@@ -4,7 +4,8 @@ using System.Collections;
 public class Maze_Collider : MonoBehaviour {
 
 	public Vector3 angle;
-	public Player player;
+	public Vector3 playerViewAngle;
+	public Camera cam;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,8 @@ public class Maze_Collider : MonoBehaviour {
 		if (other.tag == "Player") {
 			Debug.Log ("Player detected");
 
+			playerViewAngle = cam.transform.rotation;
+			// quaternion to vector 3 oder so, zum vergleichen
 		}
 		Debug.Log ("OnTriggerStay");
 	}
