@@ -3,8 +3,9 @@ using System.Collections;
 
 public class Maze_Collider : MonoBehaviour {
 
-	public Vector3 angle;
-	public Vector3 playerViewAngle;
+	//public Vector3 angle;
+	public float angle;
+	private float playerViewAngle;
 	public Camera cam;
 
 	// Use this for initialization
@@ -12,18 +13,29 @@ public class Maze_Collider : MonoBehaviour {
 	
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frames
 	void Update () {
 	
 	}
 
 	void OnTriggerStay(Collider other) {
 		if (other.tag == "Player") {
-			Debug.Log ("Player detected");
+		//	Debug.Log ("Player detected");
 
-			playerViewAngle = cam.transform.rotation;
-			// quaternion to vector 3 oder so, zum vergleichen
+			//Quaternion wantedAngle = Quaternion.Euler(angle);
+
+			angle = transform.rotation.y;
+			playerViewAngle = cam.transform.rotation.y;
+
+			if ((playerViewAngle <= angle-5) && (playerViewAngle >= angle+5)) {
+				Debug.LogError("Falscher Winkel.");
+			} else {
+				Debug.LogError("Richtiger Winkel");
+			}
+			Debug.Log("View: " + playerViewAngle);
+			Debug.Log("Collider: " + angle);
+
 		}
-		Debug.Log ("OnTriggerStay");
+	//	Debug.Log ("OnTriggerStay");
 	}
 }
