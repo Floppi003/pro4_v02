@@ -49,6 +49,12 @@ ModelImporter:
     100082: transform2
     100084: transform3
     100086: transform4
+    100088: polySurface5
+    100090: polySurface5 1
+    100092: polySurface6
+    100094: transform5
+    100096: transform6
+    100098: transform7
     400000: Floor
     400002: //RootNode
     400004: pCube10
@@ -93,6 +99,12 @@ ModelImporter:
     400082: transform2
     400084: transform3
     400086: transform4
+    400088: polySurface5
+    400090: polySurface5 1
+    400092: polySurface6
+    400094: transform5
+    400096: transform6
+    400098: transform7
     2300000: pCube10
     2300002: pCube11
     2300004: pCube12
@@ -128,6 +140,7 @@ ModelImporter:
     2300064: pPlane16
     2300066: pPlane4
     2300068: pPlane9
+    2300070: polySurface5
     3300000: pCube10
     3300002: pCube11
     3300004: pCube12
@@ -163,6 +176,7 @@ ModelImporter:
     3300064: pPlane16
     3300066: pPlane4
     3300068: pPlane9
+    3300070: polySurface5
     4300000: pCube9
     4300002: pCube5
     4300004: pCube4
@@ -198,6 +212,7 @@ ModelImporter:
     4300064: pPlane14
     4300066: pPlane15
     4300068: pPlane16
+    4300070: polySurface5
     9500000: //RootNode
   materials:
     importMaterials: 1

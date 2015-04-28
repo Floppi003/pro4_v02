@@ -74,10 +74,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Bianc/Desktop/FH Hagenberg/4. Semester/PRO4/GIT/pro4_v02/Base2/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>E:/pro4_v02/Base2/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Bianc/Desktop/FH Hagenberg/4. Semester/PRO4/GIT/pro4_v02/Base2/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>E:/pro4_v02/Base2/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
