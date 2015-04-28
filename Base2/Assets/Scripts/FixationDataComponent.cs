@@ -24,7 +24,8 @@ public class FixationDataComponent : MonoBehaviour
     public EyeXFixationPoint LastFixation { get; private set; }
 
     protected void Awake()
-    {
+	{
+
         _eyexHost = EyeXHost.GetInstance();
         _dataProvider = _eyexHost.GetFixationDataProvider(fixationDataMode);
     }

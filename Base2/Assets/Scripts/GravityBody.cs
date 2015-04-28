@@ -54,27 +54,19 @@ public class GravityBody : MonoBehaviour {
 			targetGravity = targetPlanet.GetComponent<GravityAttractor> ();
 			targetGravity.Attract (transform);
 		} else {
-			//Vector3 sideRoll = new Vector3(gravityUp.x, gravityUp.y, gravityUp.z);
-			//sideRoll.Scale(new Vector3(1,1,-1));
-			//print ("sideroll: " + gravityUp.x + " " + gravityUp.y + " " + gravityUp.z);
-			/*
-			Vector3 sideRoll = new Vector3(0,0,0);;
-			if(gravityUp == new Vector3(0,-1,0)){
-				sideRoll = new Vector3(0,0,-1);
-			}
-			*/
-
-			//sideRoll.eulerAngles.Scale (new Vector3(0,0,-1));
-			//sideRoll = Quaternion.AngleAxis(180, Vector3.up) * sideRoll;
-			//sideRoll = Quaternion.AngleAxis(180, Vector3.forward) * sideRoll;
-
 			// Apply downwards gravity to body
 			transform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
 			// Allign bodies up axis with the centre of planet
-			Quaternion targetRotation = Quaternion.FromToRotation(transform.up,gravityUp) * transform.rotation;
+			Quaternion targetRotation = Quaternion.FromToRotation(transform.up, gravityUp) * transform.rotation;
 			float angularSpeed = 3.0f;
+			if(transform.rotation!=targetRotation){
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, angularSpeed);
+<<<<<<< HEAD
 			//print("Player: " + transform.rotation + ", target: " + targetRotation);
+=======
+			}
+				print("Player: " + transform.rotation + ", target: " + targetRotation);
+>>>>>>> origin/master
 		}
 		//linear interpolation
 		//Zielposition über Zeitraum

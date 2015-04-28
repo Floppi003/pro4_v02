@@ -17,7 +17,11 @@ public class FirstPersonController : MonoBehaviour {
 	public float jumpWidth = 0;
 	private Vector3 jumpStart;
 	private Vector3 jumpEnd;
+	private Vector3 lastPos = new Vector3(0,0,0);
+	private float timePassed = 0;
+	public float speed = 0;
 	public bool inAir;
+	public bool debug = true;
 	//
 
 	// audio files
@@ -112,7 +116,7 @@ public class FirstPersonController : MonoBehaviour {
 		moveAmount = Vector3.SmoothDamp (moveAmount, targetMoveAmount, ref smoothMoveVelocity, 0.15f * damping); //ref allows to modify a global variable
 
 		// Jump
-		if (inAir && GetComponent<Rigidbody> ().position.y <= 1.0001f) {
+		if (debug && inAir && GetComponent<Rigidbody> ().position.y <= 1.0001f) {
 			inAir = false;
 			jumpEnd = GetComponent<Rigidbody> ().position; //-----------
 			jumpWidth = (jumpEnd - jumpStart).magnitude;
@@ -129,12 +133,19 @@ public class FirstPersonController : MonoBehaviour {
 		}
 
 		//----------------
-		if (Time.time > 3 && jumpHeight <= GetComponent<Rigidbody> ().position.y - 1) { //-----------
-			jumpHeight = GetComponent<Rigidbody> ().position.y - 1; 
-		}
+		if (debug) {
+			if (Time.time > 3 && jumpHeight <= GetComponent<Rigidbody> ().position.y - 1) { //-----------
+				jumpHeight = GetComponent<Rigidbody> ().position.y - 1; 
+			}
 
-			
-			//
+			if (timePassed >= 1) {
+				speed = (transform.position - lastPos).magnitude / timePassed;
+				timePassed = 0;
+				lastPos = transform.position;
+			}
+			timePassed += Time.deltaTime;
+		}
+		//
 	}
 	
 	bool IsGrounded ()

@@ -11,7 +11,9 @@ TagManager:
   - LeftEye
   - RightEye
   - GravityButton
-  - ColorButton
+  - RedButton
+  - BlueButton
+  - GreenButton
   layers:
   - Default
   - TransparentFX
