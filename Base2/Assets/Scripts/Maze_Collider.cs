@@ -16,11 +16,11 @@ public class Maze_Collider : MonoBehaviour {
 	
 	}
 
-	void OnCollisionStay(Collision other) {
-		if (other.gameObject.tag == "Player") {
+	void OnTriggerStay(Collider other) {
+		if (other.tag == "Player") {
 			Debug.Log ("Player detected");
 
 		}
-		Debug.Log ("OnTriggerEnter");
+		Debug.Log ("OnTriggerStay");
 	}
 }
