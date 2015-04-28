@@ -10,11 +10,13 @@ public class BridgeCollider : MonoBehaviour {
 		//other.gameObject.GetComponent<AudioSource> ().PlayOneShot (other.gameObject.GetComponent<FirstPersonController>().helloClip);
 
 		if (objectName.Equals ("BridgeFloorless")) {
+			Debug.Log ("bridge floor less collider");
 			FirstPersonController fps = GameObject.Find ("Player").GetComponent<FirstPersonController>();
 			if(!fps.isInFellofZone) {
-				AudioManager.getInstance ().queueAudioClip(fps.fellofBridgeSound ());
-				AudioManager.getInstance ().queueAudioClip(fps.fellofBridgeSound ());
-				AudioManager.getInstance ().queueAudioClip(fps.fellofBridgeSound ());
+				Debug.Log ("will call audio collider");
+				AudioManager.instance.queueAudioClip(fps.fellofBridgeSound());
+				AudioManager.instance.queueAudioClip (fps.fellofBridgeSound());
+				AudioManager.instance.queueAudioClip (fps.fellofBridgeSound());
 
 				//fps.playFellofBridgeSound ();
 
