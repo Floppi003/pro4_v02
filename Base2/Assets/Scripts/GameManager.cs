@@ -79,6 +79,7 @@ public class GameManager : MonoBehaviour {
 			//DontDestroyOnLoad() - don't reset value with new scene
 		} else {
 			Application.LoadLevel("main_menu");
+			Screen.lockCursor = false;
 			print ("You win!");
 		}
 	}
