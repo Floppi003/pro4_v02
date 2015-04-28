@@ -12,7 +12,12 @@ public class BridgeCollider : MonoBehaviour {
 		if (objectName.Equals ("BridgeFloorless")) {
 			FirstPersonController fps = GameObject.Find ("Player").GetComponent<FirstPersonController>();
 			if(!fps.isInFellofZone) {
-				fps.playFellofBridgeSound ();
+				AudioManager.getInstance ().queueAudioClip(fps.fellofBridgeSound ());
+				AudioManager.getInstance ().queueAudioClip(fps.fellofBridgeSound ());
+				AudioManager.getInstance ().queueAudioClip(fps.fellofBridgeSound ());
+
+				//fps.playFellofBridgeSound ();
+
 			}
 			fps.isInFellofZone = true;
 			fps.fellOfBridgeCounter++;
@@ -29,7 +34,7 @@ public class BridgeCollider : MonoBehaviour {
 	}
 	
 	void OnTriggerStay(Collider other) {
-		Debug.Log ("onTriggerStay");
+		//Debug.Log ("onTriggerStay");
 
 		// if it is the bridge, move the player slightly
 		if (objectName.Equals ("Bridge")) {

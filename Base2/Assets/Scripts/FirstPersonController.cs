@@ -65,10 +65,10 @@ public class FirstPersonController : MonoBehaviour {
 	*/
 	void OnCollisionStay(Collision collisionInfo)
 	{
-		print ("Collision!");
+		//print ("Collision!");
 		Vector3 localUp = transform.up;
 		collisionAng = Vector3.Angle(localUp, collisionInfo.contacts[0].normal);
-		print (collisionAng);
+		//print (collisionAng);
 	}
 	
 	void Awake() {
@@ -79,11 +79,11 @@ public class FirstPersonController : MonoBehaviour {
 	void Update() {
 		/**/
 
-		if(collisionAng <= 45 && collisionAng >= 1) {
+		/*if(collisionAng <= 45 && collisionAng >= 1) {
 			print("Don't fall!");
 		} else {
 			print("Do your thing.");
-		}
+		}*/
 
 
 		/**/
@@ -187,6 +187,7 @@ public class FirstPersonController : MonoBehaviour {
 		}
 	}
 
+
 	public void playRedSound() {
 		if (timeSinceLastButtonAudioPlay < 3.0f) {
 			return;
@@ -276,6 +277,32 @@ public class FirstPersonController : MonoBehaviour {
 		}
 
 		this.fellofClipsPlayed++;
+	}
+
+	public AudioClip fellofBridgeSound() {
+		// plays fellof bridge and fellof general
+		float random;
+		
+		if (this.fellofClipsPlayed > 2) {
+			random = Random.Range (0.0f, 4.0f);
+		} else {
+			random = Random.Range(0.0f, 3.0f);
+		}
+		
+
+		this.fellofClipsPlayed++;
+
+		if (random < 1.0f) {
+			return this.fellofGeneralClip1;
+		} else if (random < 2.0f) {
+			return this.fellofBridgeClip1;
+		} else if (random < 3.0f) {
+			return this.fellofBridgeClip2;
+		} else {
+			return this.fellofGeneralAdvancedClip1;
+		}
+
+		return null;
 	}
 }
 
