@@ -288,7 +288,6 @@ public class FirstPersonController : MonoBehaviour {
 
 		return null;
 	}
-}
 
 	void OnCollisionEnter(Collision other)
 	{
