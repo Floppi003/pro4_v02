@@ -60,7 +60,6 @@ public class Player : MonoBehaviour {
 		{
 			if(usesManager)
 			{
-				manager.tokenCount += 1;
 			}
 			PlaySound (0);
 			Destroy(other.gameObject);
@@ -68,7 +67,7 @@ public class Player : MonoBehaviour {
 		if (other.transform.tag == "Goal")
 		{
 			PlaySound (1);
-			Time.timeScale = 0f;
+			//Time.timeScale = 0f;
 			manager.CompleteLevel();
 		}
 	}
