@@ -5052,6 +5052,7 @@ GameObject:
   - 135: {fileID: 857090398}
   - 23: {fileID: 857090397}
   - 114: {fileID: 857090401}
+  - 54: {fileID: 857090402}
   m_Layer: 0
   m_Name: ColorCollider
   m_TagString: Untagged
@@ -5090,10 +5091,10 @@ SphereCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857090396}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: .5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &857090399
 MeshFilter:
@@ -5101,7 +5102,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857090396}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &857090400
 Transform:
   m_ObjectHideFlags: 0
@@ -5109,7 +5110,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 857090396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.51999998, y: 7.28000021, z: -51.6899986}
+  m_LocalPosition: {x: 3.51999998, y: 7.28000021, z: -49.1199989}
   m_LocalScale: {x: 1.45039928, y: 1.4503994, z: 1.4503994}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5125,6 +5126,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08233e1cea16d944ba587fe7ea5d4b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &857090402
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 857090396}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &858400609
 Prefab:
   m_ObjectHideFlags: 0
@@ -11302,7 +11318,7 @@ Transform:
   m_LocalScale: {x: .685190439, y: .236932337, z: .685190558}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 22
 --- !u!1001 &1712021337
 Prefab:
   m_ObjectHideFlags: 0

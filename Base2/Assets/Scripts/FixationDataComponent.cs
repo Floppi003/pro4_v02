@@ -11,7 +11,7 @@ using UnityEngine;
 [AddComponentMenu("Tobii EyeX/Fixation Data")]
 public class FixationDataComponent : MonoBehaviour
 {
-    public FixationDataMode fixationDataMode = FixationDataMode.Slow;
+    public FixationDataMode fixationDataMode = FixationDataMode.Sensitive;
 	public SphereCollider colorCollider;
 
     private EyeXHost _eyexHost;
