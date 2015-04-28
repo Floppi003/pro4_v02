@@ -8,7 +8,7 @@ PhysicMaterial:
   m_Name: Wall
   dynamicFriction: .0299999993
   staticFriction: .129999995
-  bounciness: .540000021
+  bounciness: 0
   frictionCombine: 1
   bounceCombine: 0
   frictionDirection2: {x: 0, y: 0, z: 0}
