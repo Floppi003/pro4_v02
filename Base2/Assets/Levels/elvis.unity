@@ -5022,6 +5022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08233e1cea16d944ba587fe7ea5d4b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMaterial: {fileID: 2100000, guid: 9f3d9aa8695d36f4298443ec1699b668, type: 2}
 --- !u!54 &857090402
 Rigidbody:
   m_ObjectHideFlags: 0

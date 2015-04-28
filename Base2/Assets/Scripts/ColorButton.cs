@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ColorButton : MonoBehaviour {
 
-
+	public Material selectedMaterial;
 
 	// Use this for initialization
 	void Start () {
@@ -45,7 +45,6 @@ public class ColorButton : MonoBehaviour {
 		
 		if (other.gameObject.tag == "RedButton") {
 			Debug.LogError ("Red Button!!!!!!!!");
-			
 //			other.gameObject.GetComponent<Renderer>().material = mat_button;
 			
 		} else if (other.gameObject.tag == "GreenButton") {
@@ -58,6 +57,8 @@ public class ColorButton : MonoBehaviour {
 			
 //			other.gameObject.GetComponent<Renderer>().material = mat_button;
 		}
+		other.material = selectedMaterial;
+
 		Debug.Log ("OurOnTriggerStay");	
 	}
 }
