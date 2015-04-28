@@ -6673,11 +6673,7 @@ Prefab:
     - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: player
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 0}
-=======
-      objectReference: {fileID: 1613032502}
->>>>>>> origin/master
     - target: {fileID: 108132, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_Name
       value: GravityButton 2
@@ -7121,34 +7117,20 @@ Prefab:
       value: 
       objectReference: {fileID: 8300000, guid: dfea7a6427b1fe748b6fb9d6b44cb65d, type: 3}
     - target: {fileID: 443308, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
-<<<<<<< HEAD
       propertyPath: m_LocalPosition.x
       value: 26.1000004
       objectReference: {fileID: 0}
     - target: {fileID: 443308, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
       propertyPath: m_LocalPosition.z
       value: .300000012
-=======
-      propertyPath: m_LocalPosition.z
-      value: -42.1300011
->>>>>>> origin/master
       objectReference: {fileID: 0}
     - target: {fileID: 443308, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 443308, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
-<<<<<<< HEAD
       propertyPath: m_LocalPosition.y
       value: 9.98999977
-=======
-      propertyPath: m_LocalPosition.x
-      value: .180000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484464, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
-      propertyPath: m_Constraints
-      value: 112
->>>>>>> origin/master
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
@@ -7457,11 +7439,7 @@ Prefab:
     - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: player
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 0}
-=======
-      objectReference: {fileID: 1613032502}
->>>>>>> origin/master
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -8927,11 +8905,7 @@ Prefab:
     - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: player
       value: 
-<<<<<<< HEAD
       objectReference: {fileID: 0}
-=======
-      objectReference: {fileID: 1613032502}
->>>>>>> origin/master
     - target: {fileID: 108132, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_Name
       value: GravityButton 3
