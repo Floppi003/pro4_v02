@@ -45,6 +45,10 @@ ModelImporter:
     100074: pPlane9
     100076: transform1
     100078: Walls
+    100080: pCube5 1
+    100082: transform2
+    100084: transform3
+    100086: transform4
     400000: Floor
     400002: //RootNode
     400004: pCube10
@@ -85,6 +89,10 @@ ModelImporter:
     400074: pPlane9
     400076: transform1
     400078: Walls
+    400080: pCube5 1
+    400082: transform2
+    400084: transform3
+    400086: transform4
     2300000: pCube10
     2300002: pCube11
     2300004: pCube12
