@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\Base2\Assets\Scripts\AudioCollider.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\Base2\Assets\Scripts\GameManager.cs">
     <Files>
-      <File FileName="..\Base2\Assets\Scripts\AudioCollider.cs" Line="8" Column="1" />
+      <File FileName="..\Base2\Assets\Scripts\GameManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

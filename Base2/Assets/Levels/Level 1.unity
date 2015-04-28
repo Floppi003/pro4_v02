@@ -131,7 +131,9 @@ MonoBehaviour:
     m_Bits: 256
   jumpHeight: 0
   jumpWidth: 0
+  speed: 0
   inAir: 0
+  debug: 1
   greenClip1: {fileID: 0}
   greenClip2: {fileID: 0}
   greenClip3: {fileID: 0}
@@ -512,7 +514,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422126, guid: 9b6e89185e70b434daf90cec4f8bd29c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -13.4899998
+      value: -12.96
       objectReference: {fileID: 0}
     - target: {fileID: 422126, guid: 9b6e89185e70b434daf90cec4f8bd29c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -533,6 +535,10 @@ Prefab:
     - target: {fileID: 422126, guid: 9b6e89185e70b434daf90cec4f8bd29c, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422126, guid: 9b6e89185e70b434daf90cec4f8bd29c, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.89143276
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9b6e89185e70b434daf90cec4f8bd29c, type: 2}
@@ -969,7 +975,7 @@ MeshCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1721529780}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: bda6c42c396080b4bacb67e4cefd7ddb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2

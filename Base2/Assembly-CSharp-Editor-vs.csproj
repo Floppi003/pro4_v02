@@ -56,10 +56,10 @@
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Floppi/Desktop/FH_Semester_04/pro4_v02/Base2/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Bianc/Desktop/FH Hagenberg/4. Semester/PRO4/GIT/pro4_v02/Base2/Assets/Plugins/x86/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="Tobii.EyeX.Client.Net20">
- <HintPath>C:/Users/Floppi/Desktop/FH_Semester_04/pro4_v02/Base2/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
+ <HintPath>C:/Users/Bianc/Desktop/FH Hagenberg/4. Semester/PRO4/GIT/pro4_v02/Base2/Assets/Plugins/x86_64/Tobii.EyeX.Client.Net20.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
@@ -95,6 +95,8 @@
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
       <Project>{9D5888BD-210D-D0EB-AC8E-945CDCA9E639}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-vs.csproj">
+      <Project>{85319635-F6F8-70B1-172F-4BFB1D38148C}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

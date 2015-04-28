@@ -32,7 +32,6 @@ public class GravityButton : MonoBehaviour {
 		if (other.tag == "Player") {
 			Debug.Log ("Player detected");
 
-
 			player.gravityUp=gravityVector;
 		}
 		Debug.Log ("OnTriggerEnter");
