@@ -17,6 +17,9 @@ public class FirstPersonController : MonoBehaviour {
 	public float jumpWidth = 0;
 	private Vector3 jumpStart;
 	private Vector3 jumpEnd;
+	private Vector3 lastPos = new Vector3(0,0,0);
+	private float timePassed = 0;
+	public float speed = 0;
 	public bool inAir;
 	//
 
@@ -133,6 +136,12 @@ public class FirstPersonController : MonoBehaviour {
 			jumpHeight = GetComponent<Rigidbody> ().position.y - 1; 
 		}
 
+		if (timePassed >= 1) {
+			speed = (transform.position - lastPos).magnitude / timePassed;
+			timePassed = 0;
+			lastPos = transform.position;
+		}
+		timePassed += Time.deltaTime;
 			
 			//
 	}

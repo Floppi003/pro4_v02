@@ -289,7 +289,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: e932f14ae35b95a428943de09d08b355, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: e932f14ae35b95a428943de09d08b355, type: 3}
       propertyPath: m_Name
@@ -1038,10 +1038,10 @@ Light:
   m_GameObject: {fileID: 169874242}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 1
+  m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
-  m_Range: 10
+  m_Intensity: 7
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -5550,14 +5550,14 @@ Light:
   serializedVersion: 6
   m_Type: 1
   m_Color: {r: .980392158, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: .529999971
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
-    m_Strength: .5
+    m_Strength: 1
     m_Bias: .0500000007
     m_NormalBias: .400000006
   m_Cookie: {fileID: 0}
@@ -7069,7 +7069,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498278, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5482520, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
       propertyPath: m_UseGravity
@@ -8100,10 +8100,10 @@ Light:
   m_GameObject: {fileID: 1206652792}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 1
+  m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
-  m_Range: 10
+  m_Intensity: 7
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -8536,14 +8536,14 @@ Light:
   m_GameObject: {fileID: 1307442696}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 2
+  m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.31999993
+  m_Intensity: .600000024
   m_Range: 200
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_Strength: .5
     m_Bias: .0500000007
@@ -9662,7 +9662,7 @@ Prefab:
     - target: {fileID: 2300038, guid: 354e460867af6024b8eaed594098b628, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a9a8b37843aec274a9c905dca10e79a8, type: 2}
+      objectReference: {fileID: 2100000, guid: 76d56cfdcfb4e8548a1e0eb6373f272d, type: 2}
     - target: {fileID: 100046, guid: 354e460867af6024b8eaed594098b628, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -10606,10 +10606,10 @@ Light:
   m_GameObject: {fileID: 1652472312}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 1
+  m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
-  m_Range: 10
+  m_Intensity: 7
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -10666,10 +10666,10 @@ Light:
   m_GameObject: {fileID: 1663925032}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 1
+  m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
-  m_Range: 10
+  m_Intensity: 7
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -10686,7 +10686,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_Lightmapping: 4
-  m_BounceIntensity: 0
+  m_BounceIntensity: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
@@ -10808,10 +10808,10 @@ Light:
   m_GameObject: {fileID: 1665288943}
   m_Enabled: 1
   serializedVersion: 6
-  m_Type: 1
+  m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: .5
-  m_Range: 10
+  m_Intensity: 7
+  m_Range: 100
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
