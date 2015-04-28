@@ -5120,6 +5120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08233e1cea16d944ba587fe7ea5d4b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMaterial: {fileID: 0}
+  oldMaterial: {fileID: 0}
 --- !u!1001 &858400609
 Prefab:
   m_ObjectHideFlags: 0
@@ -6681,15 +6683,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.96
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: .689999998
+      value: 6.48999977
       objectReference: {fileID: 0}
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 6.88000011
+      value: 8.18999958
       objectReference: {fileID: 0}
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6714,7 +6716,7 @@ Prefab:
     - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1266190567}
     - target: {fileID: 108132, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_Name
       value: GravityButton 2
@@ -7456,7 +7458,7 @@ Prefab:
     - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1266190567}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
   m_IsPrefabParent: 0
@@ -8158,6 +8160,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
+--- !u!114 &1266190567
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11430964, guid: 30dc28a51958ff84c8a896ac0d8932be,
+    type: 2}
+  m_PrefabInternal: {fileID: 1035800687}
+  m_Script: {fileID: 11500000, guid: 37ae1d878a437be4b8282bf722d321a4, type: 3}
 --- !u!1001 &1268108052
 Prefab:
   m_ObjectHideFlags: 0
@@ -8881,15 +8889,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.96
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.86999989
+      value: 2.02999997
       objectReference: {fileID: 0}
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 24.8700008
+      value: 24.4699993
       objectReference: {fileID: 0}
     - target: {fileID: 486202, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_LocalRotation.x
@@ -8914,7 +8922,7 @@ Prefab:
     - target: {fileID: 11423452, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1266190567}
     - target: {fileID: 108132, guid: 016c8ddec45db8c40837c708210aa5b9, type: 2}
       propertyPath: m_Name
       value: GravityButton 3
@@ -11225,7 +11233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityVector: {x: 0, y: 1, z: 0}
-  player: {fileID: 0}
+  player: {fileID: 1266190567}
 --- !u!23 &1709239640
 MeshRenderer:
   m_ObjectHideFlags: 0
