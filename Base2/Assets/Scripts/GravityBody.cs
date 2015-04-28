@@ -55,14 +55,14 @@ public class GravityBody : MonoBehaviour {
 			targetGravity.Attract (transform);
 		} else {
 			// Apply downwards gravity to body
-			transform.GetComponent<Rigidbody>().AddForce(gravityUp * gravity);
+			transform.GetComponent<Rigidbody> ().AddForce (gravityUp * gravity);
 			// Allign bodies up axis with the centre of planet
-			Quaternion targetRotation = Quaternion.FromToRotation(transform.up, gravityUp) * transform.rotation;
+			Quaternion targetRotation = Quaternion.FromToRotation (transform.up, gravityUp) * transform.rotation;
 			float angularSpeed = 3.0f;
-			if(transform.rotation!=targetRotation){
-			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, angularSpeed);
+			if (transform.rotation != targetRotation) {
+				transform.rotation = Quaternion.RotateTowards (transform.rotation, targetRotation, angularSpeed);
+				//print("Player: " + transform.rotation + ", target: " + targetRotation);
 			}
-				print("Player: " + transform.rotation + ", target: " + targetRotation);
 		}
 		//linear interpolation
 		//Zielposition über Zeitraum

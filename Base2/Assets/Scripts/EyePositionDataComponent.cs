@@ -149,37 +149,38 @@ public class EyePositionDataComponent : MonoBehaviour
 					// "none" was most often recognized
 					this.hideLeftEyeObjects ();
 					this.hideRightEyeObjects ();
-					Debug.Log ("NONE");
+					//Debug.Log ("NONE");
 
 				} else if (leftCount >= rightCount && leftCount >= bothCount) {
 					// "left" was most often recognized
 					this.showLeftEyeObjects ();
 					this.hideRightEyeObjects ();
-					Debug.Log ("LEFT");
+					//Debug.Log ("LEFT");
 
 				} else if (rightCount >= bothCount) {
 					// "right" was most often recognized
 					this.hideLeftEyeObjects ();
 					this.showRightEyeObjects ();
-					Debug.Log ("RIGHT");
+					//Debug.Log ("RIGHT");
 
 				} else {
 					// "both" was most often recognized
 					this.hideLeftEyeObjects();
 					this.hideRightEyeObjects();
-					Debug.Log ("BOTH");
+					//Debug.Log ("BOTH");
 				}
 
 				// check if eyes were closed 
 				if (leftCount == 0 && rightCount == 0 && bothCount == 0) {
-					Debug.Log ("EYES LONG CLOSED");
+					//Debug.Log ("EYES LONG CLOSED");
+
 					// both eyes were closed for a while, if you are in felldown mode respawn
 					FirstPersonController fps = GameObject.Find ("Player").GetComponent<FirstPersonController>();
 
 					if (fps.isInFellofZone) {
 						// respawn player
 						fps.respawn ();
-
+						Debug.Log ("fps.fellofBridgeCounter: " + fps.fellOfBridgeCounter);
 						// after second try play sound after respawning
 						if (fps.fellOfBridgeCounter >= 2) {
 							fps.playBridgeBeforeSound ();

@@ -767,7 +767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bfb14328404e7645a6f9740259cc5a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: Bridge
+  objectName: 
 --- !u!1001 &132561102
 Prefab:
   m_ObjectHideFlags: 0
@@ -2837,7 +2837,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixationDataMode: 2
-  colorCollider: {fileID: 857090398}
+  colorCollider: {fileID: 0}
 --- !u!114 &478161063
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11421994, guid: 30dc28a51958ff84c8a896ac0d8932be,
@@ -7166,6 +7166,30 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: .670000017
       objectReference: {fileID: 0}
+    - target: {fileID: 11459804, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
+      propertyPath: bridgeBeforeClip1
+      value: 
+      objectReference: {fileID: 8300000, guid: 6b1ba8ff03c0cd143830c3fd3e6c6778, type: 3}
+    - target: {fileID: 11459804, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
+      propertyPath: bridgeBeforeClip2
+      value: 
+      objectReference: {fileID: 8300000, guid: c7c5e95b7f207504897966e65573ddc2, type: 3}
+    - target: {fileID: 11459804, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
+      propertyPath: fellofGeneralClip1
+      value: 
+      objectReference: {fileID: 8300000, guid: 4e017c395cccfab40af81340011d9549, type: 3}
+    - target: {fileID: 11459804, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
+      propertyPath: fellofGeneralAdvancedClip1
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e177586cc2079e4c98083af8c87eddf, type: 3}
+    - target: {fileID: 11459804, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
+      propertyPath: fellofBridgeClip1
+      value: 
+      objectReference: {fileID: 8300000, guid: 35fa19bebeab234499ded483aabe89fe, type: 3}
+    - target: {fileID: 11459804, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
+      propertyPath: fellofBridgeClip2
+      value: 
+      objectReference: {fileID: 8300000, guid: dfea7a6427b1fe748b6fb9d6b44cb65d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 30dc28a51958ff84c8a896ac0d8932be, type: 2}
   m_IsPrefabParent: 0
@@ -10637,6 +10661,45 @@ BoxCollider:
 Transform:
   m_PrefabParentObject: {fileID: 400004, guid: e932f14ae35b95a428943de09d08b355, type: 3}
   m_PrefabInternal: {fileID: 1634544377}
+--- !u!1 &1637860986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1637860988}
+  - 114: {fileID: 1637860987}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1637860987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637860986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8482d9e291e573249bca0a97ac7ffe5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1637860988
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637860986}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .353569031, y: -.167358801, z: .734068871}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
 --- !u!1 &1652472312
 GameObject:
   m_ObjectHideFlags: 0
@@ -11261,8 +11324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c731871f52eb4c4c80b53b631cbe690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityVector: {x: 0, y: 1, z: 0}
-  player: {fileID: 478161063}
+  gravityVector: {x: 0, y: 0, z: 0}
+  player: {fileID: 0}
 --- !u!23 &1709239640
 MeshRenderer:
   m_ObjectHideFlags: 0

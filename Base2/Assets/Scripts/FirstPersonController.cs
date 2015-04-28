@@ -3,7 +3,9 @@ using System.Collections;
 
 [RequireComponent (typeof (GravityBody))]
 public class FirstPersonController : MonoBehaviour {
-	
+	public GameManager manager;
+	private Vector3 spawn;
+
 	// public vars
 	public float mouseSensitivityX = 250;
 	public float mouseSensitivityY = 250;
@@ -55,25 +57,6 @@ public class FirstPersonController : MonoBehaviour {
 	float verticalLookRotation;
 	Transform cameraTransform;
 
-	/**/
-	private float collisionAng = 0.0f;
-	/*
-	void Update() {
-		//Here move your controller and fr slope angle:
-		if(myAng < 100) {
-			print("under 100");
-		} else {
-			//Stairs animation
-		}
-	}
-	*/
-	void OnCollisionStay(Collision collisionInfo)
-	{
-		print ("Collision!");
-		Vector3 localUp = transform.up;
-		collisionAng = Vector3.Angle(localUp, collisionInfo.contacts[0].normal);
-		print (collisionAng);
-	}
 	
 	void Awake() {
 		Screen.lockCursor = true;
@@ -81,17 +64,7 @@ public class FirstPersonController : MonoBehaviour {
 	}
 	
 	void Update() {
-		/**/
-
-		if(collisionAng <= 45 && collisionAng >= 1) {
-			print("Don't fall!");
-		} else {
-			print("Do your thing.");
-		}
-
-
-		/**/
-
+	
 		timeSinceLastButtonAudioPlay += Time.deltaTime;
 		// set dampig dependend if grounded or not
 		float damping;
@@ -198,6 +171,7 @@ public class FirstPersonController : MonoBehaviour {
 		}
 	}
 
+
 	public void playRedSound() {
 		if (timeSinceLastButtonAudioPlay < 3.0f) {
 			return;
@@ -288,5 +262,57 @@ public class FirstPersonController : MonoBehaviour {
 
 		this.fellofClipsPlayed++;
 	}
+
+	public AudioClip fellofBridgeSound() {
+		// plays fellof bridge and fellof general
+		float random;
+		
+		if (this.fellofClipsPlayed > 2) {
+			random = Random.Range (0.0f, 4.0f);
+		} else {
+			random = Random.Range(0.0f, 3.0f);
+		}
+		
+
+		this.fellofClipsPlayed++;
+
+		if (random < 1.0f) {
+			return this.fellofGeneralClip1;
+		} else if (random < 2.0f) {
+			return this.fellofBridgeClip1;
+		} else if (random < 3.0f) {
+			return this.fellofBridgeClip2;
+		} else {
+			return this.fellofGeneralAdvancedClip1;
+		}
+
+		return null;
+	}
 }
 
+	void OnCollisionEnter(Collision other)
+	{
+		if (other.transform.tag == "Enemy")
+		{
+			Die ();
+		}
+	}
+	
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.transform.tag == "Enemy")
+		{
+			Die ();
+		}
+		if (other.transform.tag == "Goal")
+		{
+			Time.timeScale = 0f;
+			manager.CompleteLevel();
+		}
+	}
+	
+	void Die()
+	{		
+		transform.position = spawn;
+	}
+}
