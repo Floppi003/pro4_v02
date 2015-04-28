@@ -61,12 +61,7 @@ public class GravityBody : MonoBehaviour {
 			float angularSpeed = 3.0f;
 			if(transform.rotation!=targetRotation){
 			transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, angularSpeed);
-<<<<<<< HEAD
 			//print("Player: " + transform.rotation + ", target: " + targetRotation);
-=======
-			}
-				print("Player: " + transform.rotation + ", target: " + targetRotation);
->>>>>>> origin/master
 		}
 		//linear interpolation
 		//Zielposition über Zeitraum
