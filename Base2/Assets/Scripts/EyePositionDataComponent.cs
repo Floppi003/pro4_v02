@@ -133,7 +133,7 @@ public class EyePositionDataComponent : MonoBehaviour
 					}
 				}
 
-
+				/*
 				Debug.Log ("leftEyePosition: " + leftEyePosition);
 				Debug.Log ("rightEyePosition: " + rightEyePosition);
 				Debug.Log ("leftEyeIsValid: " + lastEyePosition.LeftEye.IsValid);
@@ -142,7 +142,7 @@ public class EyePositionDataComponent : MonoBehaviour
 				Debug.Log ("leftCount: " + leftCount);
 				Debug.Log ("rightCount: " + rightCount);
 				Debug.Log ("bothCont: " + bothCount);
-
+				*/
 
 				// check which left-eye / right-eye objects should be visible
 				if (noneCount >= leftCount && noneCount >= rightCount && noneCount >= bothCount) {

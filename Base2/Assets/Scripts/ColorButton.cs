@@ -4,7 +4,8 @@ using System.Collections;
 public class ColorButton : MonoBehaviour {
 
 	public Material selectedMaterial;
-	public Material oldMaterial;
+	public Material normalMaterial;
+	private Material oldMaterial;
 
 	// Use this for initialization
 	void Start () {
@@ -45,29 +46,30 @@ public class ColorButton : MonoBehaviour {
 		//Material mat_button1 = Instantiate(Resources.Load("Button1", typeof(Material))) as Material;
 		
 		if (other.gameObject.tag == "RedButton") {
-			Debug.LogError ("Red Button!!!!!!!!");
+			//Debug.Log ("Red Button!!!!!!!!");
 //			other.gameObject.GetComponent<Renderer>().material = mat_button;
 			
 		} else if (other.gameObject.tag == "GreenButton") {
-			Debug.LogError ("Green Button!!!!!!!!");
+			//Debug.Log ("Green Button!!!!!!!!");
 			
 //			other.gameObject.GetComponent<Renderer>().material = mat_button;
 			
 		} else if (other.gameObject.tag == "BlueButton") {
-			Debug.LogError ("Blue Button!!!!!!!!");
+			//Debug.Log ("Blue Button!!!!!!!!");
 			
 //			other.gameObject.GetComponent<Renderer>().material = mat_button;
 		}
 		//other.material = new PhysicMaterial("test");
-		oldMaterial = other.GetComponent<Renderer> ().material;
-		other.GetComponent<Renderer>().material = selectedMaterial;
+		if (other.tag == "BlueButton") {
+			oldMaterial = other.GetComponent<Renderer> ().material;
+			other.GetComponent<Renderer> ().material = selectedMaterial;
+		}
 
-
-
-		Debug.Log ("OurOnTriggerStay");	
 	}
 
 	void OnTriggerExit(Collider col) {
-		col.GetComponent<Renderer> ().material = oldMaterial;
+		if (col.tag == "BlueButton") {
+			col.GetComponent<Renderer> ().material = oldMaterial;
+		}
 	}
 }

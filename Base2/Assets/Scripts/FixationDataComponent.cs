@@ -57,7 +57,7 @@ public class FixationDataComponent : MonoBehaviour
 
 					//fixationRaycastHit.collider.gameObject.transform.position = new Vector3(0, 0, 0); 
 
-					Debug.Log ("fixedObject: " + fixedObject);
+//					Debug.Log ("fixedObject: " + fixedObject);
 
 					if(fixedObject.Contains("Button_red"))
 					{
